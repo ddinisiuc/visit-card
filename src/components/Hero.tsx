@@ -53,7 +53,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-gold-400/20 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-gold-400/20 mb-8 animate-border-lightning"
         >
           <Sparkles className="w-4 h-4 text-gold-400" />
           <span className="text-sm text-foreground/80">Open to new partnerships</span>

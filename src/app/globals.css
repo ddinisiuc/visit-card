@@ -158,6 +158,24 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes border-rotate {
+  0% {
+    --angle: 0deg;
+    opacity: 1;
+  }
+  37.5% {
+    --angle: 360deg;
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    --angle: 360deg;
+    opacity: 0;
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -171,4 +189,39 @@ body {
   );
   background-size: 200% 100%;
   animation: shimmer 3s linear infinite;
+}
+
+.animate-border-lightning {
+  position: relative;
+  border: 1px solid transparent !important;
+  background: rgba(15, 40, 71, 0.4);
+  background-clip: padding-box;
+}
+
+.animate-border-lightning::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    transparent 70%,
+    rgba(245, 158, 11, 0.8) 85%,
+    rgba(245, 158, 11, 1) 90%,
+    rgba(245, 158, 11, 0.8) 95%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-rotate 16s linear infinite;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }

@@ -40,7 +40,7 @@ export const projects: Project[] = [
     },
     role: {
       en: 'Led architecture and delivery',
-      ru: 'Архитектура и запуск'
+      ru: 'От архитектуры до запуска'
     },
     shortDescription: {
       en: 'A modern, full-featured e-commerce solution with real-time inventory and AI-powered recommendations.',
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     },
     role: {
       en: 'Owned MVP and launch',
-      ru: 'Вёл MVP и запуск'
+      ru: 'От MVP до запуска'
     },
     shortDescription: {
       en: 'Collaborative project management tool with real-time updates and team analytics.',
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     },
     role: {
       en: 'Led team and roadmap',
-      ru: 'Вёл команду и роадмап'
+      ru: 'От команды до роадмапа'
     },
     shortDescription: {
       en: 'Real-time financial analytics platform with advanced data visualization.',

@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Premium Dark Blue & Gold Color Palette */
+  --color-navy-950: #020617;
+  --color-navy-900: #0a1628;
+  --color-navy-800: #0f2847;
+  --color-navy-700: #1a3a5c;
+  --color-navy-600: #1e4976;
+  --color-navy-500: #2563eb;
+
+  --color-gold-50: #fffdf7;
+  --color-gold-100: #fef3c7;
+  --color-gold-200: #fde68a;
+  --color-gold-300: #fcd34d;
+  --color-gold-400: #f59e0b;
+  --color-gold-500: #d97706;
+  --color-gold-600: #b45309;
+
+  /* Semantic Colors */
+  --color-background: var(--color-navy-950);
+  --color-foreground: #f8fafc;
+  --color-muted: #64748b;
+  --color-accent: var(--color-gold-400);
+  --color-accent-hover: var(--color-gold-300);
+
+  /* Card & Surface */
+  --color-card: rgba(15, 40, 71, 0.5);
+  --color-card-hover: rgba(30, 73, 118, 0.5);
+  --color-border: rgba(245, 158, 11, 0.2);
+  --color-border-hover: rgba(245, 158, 11, 0.4);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Premium gradient backgrounds */
+.gradient-radial {
+  background: radial-gradient(ellipse at center, var(--color-navy-800) 0%, var(--color-navy-950) 70%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-400) 0%, var(--color-gold-500) 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-300) 0%, var(--color-gold-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(15, 40, 71, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.1);
+}
+
+.glass-strong {
+  background: rgba(10, 22, 40, 0.8);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+/* Gold glow effect */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.15),
+              0 0 80px rgba(245, 158, 11, 0.1);
+}
+
+.glow-gold-sm {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+}
+
+/* Premium button styles */
+.btn-primary {
+  @apply px-8 py-4 bg-gradient-to-r from-gold-400 to-gold-500 text-navy-950 font-semibold rounded-full transition-all duration-300 hover:from-gold-300 hover:to-gold-400 hover:scale-105 hover:shadow-lg;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+}
+
+.btn-secondary {
+  @apply px-8 py-4 border border-gold-400/30 text-gold-400 font-semibold rounded-full transition-all duration-300 hover:border-gold-400/60 hover:bg-gold-400/10;
+}
+
+/* Animated underline */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold-400), var(--color-gold-500));
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Selection */
+::selection {
+  background: rgba(245, 158, 11, 0.3);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-navy-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-700);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-400);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 158, 11, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }

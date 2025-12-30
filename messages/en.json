@@ -1,0 +1,52 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Daniil",
+    "role": "Full-Stack Developer",
+    "description": "I craft elegant digital experiences with modern technologies. Passionate about clean code, beautiful interfaces, and scalable architecture.",
+    "cta": "View My Work",
+    "contact": "Get in Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Crafting Digital Excellence",
+    "description": "With years of experience in software development, I specialize in building robust, scalable applications that combine beautiful design with powerful functionality.",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "clients": "Happy Clients"
+    },
+    "skills": "Core Technologies"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Selected Works",
+    "viewProject": "View Project",
+    "viewAll": "View All Projects",
+    "details": {
+      "overview": "Overview",
+      "technologies": "Technologies",
+      "features": "Key Features",
+      "liveDemo": "Live Demo",
+      "sourceCode": "Source Code",
+      "backToProjects": "Back to Projects"
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Get in Touch",
+    "description": "Have a project in mind? I'd love to hear about it. Let's create something amazing together.",
+    "email": "Email Me",
+    "socials": "Connect With Me"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with passion"
+  }
+}

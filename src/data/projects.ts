@@ -81,8 +81,8 @@ export const projects: Project[] = [
       ru: 'Система управления задачами'
     },
     role: {
-      en: 'From MVP to production',
-      ru: 'От MVP до продакшна'
+      en: 'Owned MVP and launch',
+      ru: 'Вёл MVP и запуск'
     },
     shortDescription: {
       en: 'Collaborative project management tool with real-time updates and team analytics.',
@@ -123,8 +123,8 @@ export const projects: Project[] = [
       ru: 'Аналитическая панель FinTech'
     },
     role: {
-      en: 'Team coordination & roadmap',
-      ru: 'Координация команды и роадмап'
+      en: 'Led team and roadmap',
+      ru: 'Вёл команду и роадмап'
     },
     shortDescription: {
       en: 'Real-time financial analytics platform with advanced data visualization.',

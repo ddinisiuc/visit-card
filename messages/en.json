@@ -9,14 +9,14 @@
     "greeting": "",
     "name": "Daniil",
     "role": "From idea to delivery",
-    "description": "I take ownership of the tech side — from decisions and people to shipping real products.",
+    "description": "I move ideas through decisions, people, and execution — into shipped products.",
     "cta": "Start a project",
     "contact": "Talk about your idea"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Building Products, Not Just Code",
-    "description": "I take responsibility for outcomes — from architecture decisions to team coordination and client communication. My role is to bridge the gap between an idea, the people who build it, and the result that ships. Comfortable with uncertainty, tight timelines, and real business constraints.",
+    "description": "I take responsibility for outcomes — from architecture decisions to team coordination and client communication. Comfortable with uncertainty, tight timelines, and real business constraints. I work where ideas, teams, and execution meet — making sure products actually ship.",
     "stats": {
       "experience": "Delivering production systems",
       "projects": "MVPs, platforms, internal tools",

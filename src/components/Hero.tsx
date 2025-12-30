@@ -56,18 +56,8 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-gold-400/20 mb-8"
         >
           <Sparkles className="w-4 h-4 text-gold-400" />
-          <span className="text-sm text-foreground/80">Available for new projects</span>
+          <span className="text-sm text-foreground/80">Open to new partnerships</span>
         </motion.div>
-
-        {/* Greeting */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg md:text-xl text-muted mb-4"
-        >
-          {t('greeting')}
-        </motion.p>
 
         {/* Name */}
         <motion.h1
@@ -121,7 +111,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="mt-20 flex items-center justify-center gap-8 flex-wrap"
         >
-          {['React', 'TypeScript', 'Node.js', 'Next.js', 'PostgreSQL'].map((tech, index) => (
+          {['Laravel', 'Vue.js', 'PHP', 'Docker', 'PostgreSQL'].map((tech, index) => (
             <motion.span
               key={tech}
               initial={{ opacity: 0, y: 10 }}

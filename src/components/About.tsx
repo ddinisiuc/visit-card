@@ -2,15 +2,19 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Code2, Palette, Database, Cloud, Smartphone, GitBranch } from 'lucide-react';
+import { Compass, Users, MessageSquare, Calendar, Code2, Server, Cloud } from 'lucide-react';
 
-const skills = [
-  { icon: Code2, name: 'Frontend', techs: ['React', 'Next.js', 'Vue', 'TypeScript'] },
-  { icon: Database, name: 'Backend', techs: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB'] },
-  { icon: Cloud, name: 'Cloud', techs: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'] },
-  { icon: Smartphone, name: 'Mobile', techs: ['React Native', 'Flutter'] },
-  { icon: Palette, name: 'Design', techs: ['Figma', 'UI/UX', 'Prototyping'] },
-  { icon: GitBranch, name: 'Tools', techs: ['Git', 'Linux', 'Agile', 'Testing'] },
+const whatILead = [
+  { icon: Compass, name: 'Architecture' },
+  { icon: Calendar, name: 'Delivery & Planning' },
+  { icon: Users, name: 'Team Coordination' },
+  { icon: MessageSquare, name: 'Client Communication' },
+];
+
+const whatWeUse = [
+  { icon: Code2, name: 'PHP / Laravel / Symfony' },
+  { icon: Server, name: 'Vue.js' },
+  { icon: Cloud, name: 'Cloud, Docker, CI/CD' },
 ];
 
 const stats = [
@@ -75,7 +79,7 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* How I Work */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -85,37 +89,67 @@ export default function About() {
           <h3 className="text-center text-xl font-semibold mb-10 text-foreground/80">
             {t('skills')}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group glass rounded-2xl p-6 hover:border-gold-400/30 transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-400/20 to-gold-500/10 flex items-center justify-center group-hover:from-gold-400/30 group-hover:to-gold-500/20 transition-colors duration-300">
-                    <skill.icon className="w-6 h-6 text-gold-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-foreground mb-2">{skill.name}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skill.techs.map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-xs px-2 py-1 rounded-full bg-navy-800/50 text-muted border border-navy-700/50"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* What I Lead */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <h4 className="text-lg font-medium text-gold-400 mb-6 uppercase tracking-wider">
+                {t('whatILead')}
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {whatILead.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="group glass rounded-xl p-4 hover:border-gold-400/30 transition-all duration-300 flex items-center gap-3"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400/20 to-gold-500/10 flex items-center justify-center group-hover:from-gold-400/30 group-hover:to-gold-500/20 transition-colors duration-300">
+                      <item.icon className="w-5 h-5 text-gold-400" />
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                    <span className="font-medium text-foreground">{item.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* What We Use */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <h4 className="text-lg font-medium text-foreground/60 mb-6 uppercase tracking-wider">
+                {t('whatWeUse')}
+              </h4>
+              <div className="grid grid-cols-1 gap-4">
+                {whatWeUse.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    className="group glass rounded-xl p-4 hover:border-gold-400/30 transition-all duration-300 flex items-center gap-3"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-navy-800/50 flex items-center justify-center group-hover:bg-navy-700/50 transition-colors duration-300">
+                      <item.icon className="w-5 h-5 text-foreground/60" />
+                    </div>
+                    <span className="text-muted">{item.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

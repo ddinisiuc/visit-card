@@ -28,7 +28,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-muted text-sm max-w-xs">
-              Full-Stack Developer crafting elegant digital experiences with modern technologies.
+              Tech partner helping founders turn ideas into shipped products.
             </p>
           </div>
 

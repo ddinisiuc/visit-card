@@ -4,9 +4,13 @@ import { projects, getProjectBySlug } from '@/data/projects';
 import ProjectDetail from './ProjectDetail';
 
 export function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  const locales = ['en', 'ru'];
+  return locales.flatMap((locale) =>
+    projects.map((project) => ({
+      locale,
+      slug: project.slug,
+    }))
+  );
 }
 
 export async function generateMetadata({

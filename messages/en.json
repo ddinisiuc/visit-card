@@ -6,23 +6,25 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello, I'm",
+    "greeting": "",
     "name": "Daniil",
-    "role": "Full-Stack Developer",
-    "description": "I craft elegant digital experiences with modern technologies. Passionate about clean code, beautiful interfaces, and scalable architecture.",
-    "cta": "View My Work",
-    "contact": "Get in Touch"
+    "role": "From idea to delivery",
+    "description": "I take ownership of the tech side, connect the right people, and help turn ideas into real, working products.",
+    "cta": "Start a project",
+    "contact": "Talk about your idea"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Crafting Digital Excellence",
-    "description": "With years of experience in software development, I specialize in building robust, scalable applications that combine beautiful design with powerful functionality.",
+    "subtitle": "Building Products, Not Just Code",
+    "description": "I take responsibility for outcomes — from architecture decisions to team coordination and client communication. I work with uncertainty, real constraints, and tight timelines. My role is to bridge the gap between an idea, the people who build it, and the result that ships.",
     "stats": {
-      "experience": "Years Experience",
-      "projects": "Projects Completed",
-      "clients": "Happy Clients"
+      "experience": "Delivering production systems",
+      "projects": "MVPs, platforms, internal tools",
+      "clients": "Long-term collaborations"
     },
-    "skills": "Core Technologies"
+    "skills": "How I Work",
+    "whatILead": "What I Lead",
+    "whatWeUse": "What We Use"
   },
   "projects": {
     "title": "Featured Projects",
@@ -39,11 +41,11 @@
     }
   },
   "contact": {
-    "title": "Let's Work Together",
-    "subtitle": "Get in Touch",
-    "description": "Have a project in mind? I'd love to hear about it. Let's create something amazing together.",
-    "email": "Email Me",
-    "socials": "Connect With Me"
+    "title": "Let's Build Together",
+    "subtitle": "Start a Conversation",
+    "description": "Tell me what you're trying to achieve — I'll help you get there.",
+    "email": "Write to me",
+    "socials": "Or find me here"
   },
   "footer": {
     "rights": "All rights reserved.",

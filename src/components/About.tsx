@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { Compass, Users, MessageSquare, Calendar, Code2, Server, Cloud } from 'lucide-react';
 
 const whatILead = [
-  { icon: Compass, name: 'Architecture' },
   { icon: Calendar, name: 'Delivery & Planning' },
+  { icon: Compass, name: 'Architecture' },
   { icon: Users, name: 'Team Coordination' },
   { icon: MessageSquare, name: 'Client Communication' },
 ];

@@ -5,6 +5,10 @@ export interface Project {
     en: string;
     ru: string;
   };
+  role: {
+    en: string;
+    ru: string;
+  };
   shortDescription: {
     en: string;
     ru: string;
@@ -33,6 +37,10 @@ export const projects: Project[] = [
     title: {
       en: 'E-Commerce Platform',
       ru: 'Платформа электронной коммерции'
+    },
+    role: {
+      en: 'Led architecture and delivery',
+      ru: 'Архитектура и запуск'
     },
     shortDescription: {
       en: 'A modern, full-featured e-commerce solution with real-time inventory and AI-powered recommendations.',
@@ -72,6 +80,10 @@ export const projects: Project[] = [
       en: 'Task Management System',
       ru: 'Система управления задачами'
     },
+    role: {
+      en: 'From MVP to production',
+      ru: 'От MVP до продакшна'
+    },
     shortDescription: {
       en: 'Collaborative project management tool with real-time updates and team analytics.',
       ru: 'Инструмент для совместного управления проектами с обновлениями в реальном времени и аналитикой команды.'
@@ -109,6 +121,10 @@ export const projects: Project[] = [
     title: {
       en: 'FinTech Analytics Dashboard',
       ru: 'Аналитическая панель FinTech'
+    },
+    role: {
+      en: 'Team coordination & roadmap',
+      ru: 'Координация команды и роадмап'
     },
     shortDescription: {
       en: 'Real-time financial analytics platform with advanced data visualization.',

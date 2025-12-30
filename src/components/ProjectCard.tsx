@@ -52,9 +52,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Content */}
           <div className="p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-gold-400 transition-colors duration-300">
+            <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-gold-400 transition-colors duration-300">
               {project.title[locale]}
             </h3>
+            <p className="text-gold-400/70 text-xs uppercase tracking-wider mb-3">
+              {project.role[locale]}
+            </p>
 
             <p className="text-muted text-sm mb-4 line-clamp-2">
               {project.shortDescription[locale]}

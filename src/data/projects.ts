@@ -43,29 +43,29 @@ export const projects: Project[] = [
       ru: 'От архитектуры до запуска'
     },
     shortDescription: {
-      en: 'A modern, full-featured e-commerce solution with real-time inventory and AI-powered recommendations.',
-      ru: 'Современное полнофункциональное решение для электронной коммерции с учётом запасов в реальном времени и рекомендациями на основе ИИ.'
+      en: 'Helping a retail business move online under tight deadlines and unclear initial scope.',
+      ru: 'Помощь розничному бизнесу в выходе онлайн в сжатые сроки и при неясных начальных требованиях.'
     },
     fullDescription: {
-      en: 'Built a comprehensive e-commerce platform from the ground up, featuring a microservices architecture, real-time inventory management, and machine learning-powered product recommendations. The platform handles thousands of concurrent users with sub-second response times.',
-      ru: 'Создал комплексную платформу электронной коммерции с нуля, включающую микросервисную архитектуру, управление запасами в реальном времени и рекомендации продуктов на основе машинного обучения. Платформа обслуживает тысячи одновременных пользователей со временем отклика менее секунды.'
+      en: 'A retail company needed to launch online sales quickly, but requirements were fragmented across multiple stakeholders. I joined early to help structure the scope, make architectural decisions that would support future growth, and coordinate between the business team and developers. The main challenge was balancing speed-to-market with a foundation that wouldn\'t need to be rebuilt in six months. We shipped the MVP on schedule and continued iterating based on real customer behavior.',
+      ru: 'Розничная компания хотела быстро запустить онлайн-продажи, но требования были разрознены между несколькими стейкхолдерами. Я подключился на раннем этапе, чтобы структурировать скоуп, принять архитектурные решения с учётом будущего роста и координировать работу между бизнесом и разработчиками. Главной задачей было найти баланс между скоростью выхода на рынок и фундаментом, который не пришлось бы переписывать через полгода. MVP запустили в срок и продолжили итерации на основе реального поведения покупателей.'
     },
     image: '/images/projects/ecommerce.jpg',
     technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
     features: {
       en: [
-        'Real-time inventory tracking',
-        'AI-powered product recommendations',
-        'Multi-currency support',
-        'Advanced analytics dashboard',
-        'Mobile-first responsive design'
+        'Structured inventory sync to eliminate manual stock updates that caused overselling',
+        'Introduced recommendation logic to increase average order value without complex ML infrastructure',
+        'Added multi-currency support early to avoid re-architecture when expanding to new markets',
+        'Built an analytics view for the ops team to reduce dependency on developers for basic reporting',
+        'Prioritized mobile experience based on traffic data showing 70%+ mobile users'
       ],
       ru: [
-        'Отслеживание запасов в реальном времени',
-        'Рекомендации товаров на основе ИИ',
-        'Поддержка мультивалютности',
-        'Продвинутая панель аналитики',
-        'Мобильно-ориентированный адаптивный дизайн'
+        'Настроили синхронизацию остатков, чтобы исключить ручные обновления и проблему перепродаж',
+        'Внедрили логику рекомендаций для повышения среднего чека без сложной ML-инфраструктуры',
+        'Заложили мультивалютность на старте, чтобы избежать переделок при выходе на новые рынки',
+        'Создали аналитическое представление для операционной команды, снизив зависимость от разработчиков',
+        'Приоритизировали мобильную версию на основе данных о 70%+ мобильного трафика'
       ]
     },
     liveUrl: 'https://example.com',
@@ -85,29 +85,29 @@ export const projects: Project[] = [
       ru: 'От MVP до запуска'
     },
     shortDescription: {
-      en: 'Collaborative project management tool with real-time updates and team analytics.',
-      ru: 'Инструмент для совместного управления проектами с обновлениями в реальном времени и аналитикой команды.'
+      en: 'Replacing scattered tools with a single system for a growing distributed team.',
+      ru: 'Замена разрозненных инструментов единой системой для растущей распределённой команды.'
     },
     fullDescription: {
-      en: 'Developed a sophisticated task management application designed for modern teams. Features include real-time collaboration, customizable workflows, time tracking, and comprehensive reporting. Built with performance and scalability in mind.',
-      ru: 'Разработал сложное приложение для управления задачами, предназначенное для современных команд. Включает совместную работу в реальном времени, настраиваемые рабочие процессы, отслеживание времени и комплексную отчётность.'
+      en: 'A startup with a growing remote team was losing visibility into who was working on what. Tasks lived in spreadsheets, Slack threads, and email. I helped define what "good enough" looked like for an MVP, made early technical choices that would scale with the team, and coordinated a small dev team through weekly releases. The goal wasn\'t to build a perfect tool — it was to reduce coordination overhead and give leadership clarity on progress.',
+      ru: 'Стартап с растущей удалённой командой терял видимость того, кто над чем работает. Задачи были разбросаны по таблицам, Slack-чатам и почте. Я помог определить, как выглядит «достаточно хороший» MVP, принял ранние технические решения с учётом масштабирования команды и координировал небольшую команду разработчиков через еженедельные релизы. Цель была не в идеальном инструменте — а в снижении накладных расходов на координацию и прозрачности для руководства.'
     },
     image: '/images/projects/taskmanager.jpg',
     technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'GraphQL'],
     features: {
       en: [
-        'Real-time collaboration',
-        'Kanban and Gantt views',
-        'Time tracking & reporting',
-        'Custom workflow automation',
-        'Third-party integrations'
+        'Added real-time updates to reduce status meetings and async check-ins',
+        'Implemented Kanban and Gantt views to support different planning styles across teams',
+        'Built time tracking to help the team understand where effort was actually going',
+        'Created workflow automation to eliminate repetitive manual task routing',
+        'Integrated with existing tools (Slack, calendar) to reduce context switching'
       ],
       ru: [
-        'Совместная работа в реальном времени',
-        'Kanban и диаграммы Ганта',
-        'Отслеживание времени и отчётность',
-        'Автоматизация рабочих процессов',
-        'Интеграции со сторонними сервисами'
+        'Добавили обновления в реальном времени, чтобы сократить статус-митинги и асинхронные проверки',
+        'Внедрили Kanban и Gantt для поддержки разных стилей планирования в командах',
+        'Встроили учёт времени, чтобы команда понимала, куда реально уходят усилия',
+        'Создали автоматизацию воркфлоу для устранения рутинной ручной маршрутизации задач',
+        'Интегрировались с существующими инструментами (Slack, календарь) для снижения переключения контекста'
       ]
     },
     liveUrl: 'https://example.com',
@@ -127,29 +127,29 @@ export const projects: Project[] = [
       ru: 'От команды до роадмапа'
     },
     shortDescription: {
-      en: 'Real-time financial analytics platform with advanced data visualization.',
-      ru: 'Платформа финансовой аналитики в реальном времени с продвинутой визуализацией данных.'
+      en: 'Giving a financial services team visibility into data they previously accessed through manual reports.',
+      ru: 'Предоставление финансовой команде доступа к данным, которые раньше получали через ручные отчёты.'
     },
     fullDescription: {
-      en: 'Created an enterprise-grade financial analytics dashboard that processes millions of transactions daily. Features advanced charting, predictive analytics, and customizable reporting tools for financial institutions.',
-      ru: 'Создал корпоративную панель финансовой аналитики, обрабатывающую миллионы транзакций ежедневно. Включает продвинутые графики, прогнозную аналитику и настраиваемые инструменты отчётности.'
+      en: 'A financial services company relied on weekly reports generated manually by analysts. Leadership had limited visibility into real-time performance, and decisions were often delayed. I helped scope the initial version, coordinated a team of three developers, and worked closely with stakeholders to prioritize what mattered most. The challenge was earning trust in a regulated environment while delivering iteratively — not waiting for a "complete" product that would never ship.',
+      ru: 'Финансовая компания полагалась на еженедельные отчёты, которые аналитики готовили вручную. У руководства была ограниченная видимость в реальном времени, и решения часто откладывались. Я помог определить скоуп первой версии, координировал команду из трёх разработчиков и плотно работал со стейкхолдерами над приоритизацией. Задача была заслужить доверие в регулируемой среде, поставляя итеративно — а не ждать «готового» продукта, который никогда бы не вышел.'
     },
     image: '/images/projects/fintech.jpg',
     technologies: ['Vue.js', 'Python', 'FastAPI', 'TimescaleDB', 'D3.js'],
     features: {
       en: [
-        'Real-time data streaming',
-        'Advanced chart visualizations',
-        'Predictive analytics',
-        'Custom report builder',
-        'Role-based access control'
+        'Enabled real-time data access to replace weekly batch reports',
+        'Designed visualizations collaboratively with end users to ensure adoption',
+        'Added trend indicators to support faster decision-making without analyst involvement',
+        'Built a report builder so teams could self-serve instead of filing requests',
+        'Implemented role-based access to meet compliance requirements from day one'
       ],
       ru: [
-        'Потоковая передача данных в реальном времени',
-        'Продвинутые визуализации графиков',
-        'Прогнозная аналитика',
-        'Конструктор отчётов',
-        'Контроль доступа на основе ролей'
+        'Обеспечили доступ к данным в реальном времени вместо еженедельных пакетных отчётов',
+        'Проектировали визуализации совместно с конечными пользователями для обеспечения принятия',
+        'Добавили индикаторы трендов для ускорения принятия решений без участия аналитиков',
+        'Создали конструктор отчётов, чтобы команды могли получать данные самостоятельно',
+        'Внедрили ролевой доступ для соответствия требованиям комплаенса с первого дня'
       ]
     },
     featured: true,

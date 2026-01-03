@@ -56,7 +56,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-gold-400/20 mb-8 animate-border-lightning"
         >
           <Sparkles className="w-4 h-4 text-gold-400" />
-          <span className="text-sm text-foreground/80">Open to new partnerships</span>
+          <span className="text-sm text-foreground/80">{t('badge')}</span>
         </motion.div>
 
         {/* Name */}

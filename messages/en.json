@@ -8,19 +8,20 @@
   "hero": {
     "greeting": "",
     "name": "Daniil",
-    "role": "From idea to delivery",
-    "description": "I move ideas through decisions, people, and execution — into shipped products.",
-    "cta": "Start a project",
-    "contact": "Talk about your idea"
+    "badge": "Partnering with early-stage startups",
+    "role": "Structure for early-stage products",
+    "description": "I help founders bridge the gap between vision and working software — through clear requirements, sound architecture, and reliable delivery.",
+    "cta": "See my work",
+    "contact": "Discuss your project"
   },
   "about": {
     "title": "About Me",
     "subtitle": "Building Products, Not Just Code",
-    "description": "I take responsibility for outcomes — from architecture decisions to team coordination and client communication. Comfortable with uncertainty, tight timelines, and real business constraints. I work where ideas, teams, and execution meet — making sure products actually ship.",
+    "description": "I own the path from unclear requirements to shipped product. That means discovery, architecture decisions, coordinating developers, and communicating progress. I work well with incomplete information, tight timelines, and the realities of early-stage constraints. If you need clarity before development — not just a developer — I can help.",
     "stats": {
-      "experience": "Delivering production systems",
+      "experience": "Years delivering production systems",
       "projects": "MVPs, platforms, internal tools",
-      "clients": "Long-term collaborations"
+      "clients": "Founders and teams supported"
     },
     "skills": "How I Work",
     "whatILead": "What I Lead",
@@ -41,9 +42,9 @@
     }
   },
   "contact": {
-    "title": "Let's Build Together",
+    "title": "Let's Talk",
     "subtitle": "Start a Conversation",
-    "description": "Tell me what you're trying to achieve — I'll help you get there.",
+    "description": "Tell me where you are and where you need to go. I'll help you figure out the path.",
     "email": "Write to me",
     "socials": "Or find me here"
   },

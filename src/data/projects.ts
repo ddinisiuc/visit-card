@@ -24,6 +24,14 @@ export interface Project {
     en: string[];
     ru: string[];
   };
+  challenges: {
+    en: string[];
+    ru: string[];
+  };
+  scope: {
+    en: string[];
+    ru: string[];
+  };
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
@@ -68,6 +76,32 @@ export const projects: Project[] = [
         'Приоритизировали мобильную версию на основе данных о 70%+ мобильного трафика'
       ]
     },
+    challenges: {
+      en: [
+        'Fragmented requirements across multiple stakeholders with conflicting priorities',
+        'Balancing speed-to-market pressure with building a sustainable foundation',
+        'Legacy inventory system integration with limited API access'
+      ],
+      ru: [
+        'Разрозненные требования от нескольких стейкхолдеров с противоречащими приоритетами',
+        'Баланс между давлением на скорость выхода и построением устойчивого фундамента',
+        'Интеграция с устаревшей системой остатков при ограниченном доступе к API'
+      ]
+    },
+    scope: {
+      en: [
+        'Requirements structuring and stakeholder alignment',
+        'Architecture design and technical decision-making',
+        'Development team coordination and delivery management',
+        'Post-launch iteration based on customer behavior data'
+      ],
+      ru: [
+        'Структурирование требований и согласование со стейкхолдерами',
+        'Проектирование архитектуры и принятие технических решений',
+        'Координация команды разработки и управление поставкой',
+        'Пост-запускные итерации на основе данных о поведении клиентов'
+      ]
+    },
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/example',
     featured: true,
@@ -110,6 +144,32 @@ export const projects: Project[] = [
         'Интегрировались с существующими инструментами (Slack, календарь) для снижения переключения контекста'
       ]
     },
+    challenges: {
+      en: [
+        'Replacing entrenched habits across teams using different tools',
+        'Defining "good enough" for MVP without over-engineering',
+        'Maintaining momentum with weekly releases while ensuring stability'
+      ],
+      ru: [
+        'Замена укоренившихся привычек в командах, использующих разные инструменты',
+        'Определение «достаточно хорошего» MVP без переусложнения',
+        'Поддержание темпа еженедельных релизов при обеспечении стабильности'
+      ]
+    },
+    scope: {
+      en: [
+        'MVP definition and feature prioritization',
+        'Technical architecture decisions for scalability',
+        'Small development team coordination',
+        'Weekly release management and stakeholder communication'
+      ],
+      ru: [
+        'Определение MVP и приоритизация функций',
+        'Технические архитектурные решения для масштабируемости',
+        'Координация небольшой команды разработки',
+        'Управление еженедельными релизами и коммуникация со стейкхолдерами'
+      ]
+    },
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/example',
     featured: true,
@@ -150,6 +210,32 @@ export const projects: Project[] = [
         'Добавили индикаторы трендов для ускорения принятия решений без участия аналитиков',
         'Создали конструктор отчётов, чтобы команды могли получать данные самостоятельно',
         'Внедрили ролевой доступ для соответствия требованиям комплаенса с первого дня'
+      ]
+    },
+    challenges: {
+      en: [
+        'Building trust in a regulated environment while delivering iteratively',
+        'Multiple data sources with inconsistent formats and update frequencies',
+        'Balancing real-time requirements with system performance constraints'
+      ],
+      ru: [
+        'Завоевание доверия в регулируемой среде при итеративной поставке',
+        'Множество источников данных с несогласованными форматами и частотой обновления',
+        'Баланс требований реального времени с ограничениями производительности системы'
+      ]
+    },
+    scope: {
+      en: [
+        'Initial version scoping and stakeholder prioritization',
+        'Development team of three coordination',
+        'Compliance requirements integration from project start',
+        'User adoption strategy and visualization design collaboration'
+      ],
+      ru: [
+        'Определение скоупа первой версии и приоритизация стейкхолдеров',
+        'Координация команды из трёх разработчиков',
+        'Интеграция требований комплаенса с начала проекта',
+        'Стратегия принятия пользователями и совместное проектирование визуализаций'
       ]
     },
     featured: true,

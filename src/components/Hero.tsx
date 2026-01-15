@@ -15,7 +15,7 @@ export default function Hero() {
   const t = useTranslations('hero');
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient orbs */}

@@ -8,20 +8,43 @@
   "hero": {
     "greeting": "",
     "name": "Daniil",
-    "badge": "Partnering with early-stage startups",
-    "role": "Structure for early-stage products",
-    "description": "I help founders bridge the gap between vision and working software — through clear requirements, sound architecture, and reliable delivery.",
+    "badge": "Technical partner for founders",
+    "role": "Early-stage founders: from idea to shipped product without the chaos",
+    "description": "I own the full path — discovery, architecture, dev coordination, and delivery. You get clarity and a working product, not just code.",
     "cta": "See my work",
-    "contact": "Discuss your project"
+    "contact": "Book a 15-min call",
+    "stats": {
+      "experience": "Years in production",
+      "projects": "Products shipped",
+      "clients": "Founders helped"
+    }
+  },
+  "fit": {
+    "title": "Is this for you?",
+    "forYou": "This is for you if",
+    "notForYou": "This isn't for you if",
+    "forYouItems": [
+      "You're pre-seed to Series A with a product idea but no technical co-founder",
+      "You've been burned by agencies that shipped code you can't maintain",
+      "You need someone who owns the outcome, not just writes tickets"
+    ],
+    "notForYouItems": [
+      "You need a junior developer for hourly tasks",
+      "You have a full tech team and just need extra hands",
+      "You're looking for the cheapest option"
+    ]
   },
   "about": {
     "title": "About Me",
     "subtitle": "Building Products, Not Just Code",
-    "description": "I own the path from unclear requirements to shipped product. That means discovery, architecture decisions, coordinating developers, and communicating progress. I work well with incomplete information, tight timelines, and the realities of early-stage constraints. If you need clarity before development — not just a developer — I can help.",
-    "stats": {
-      "experience": "Years delivering production systems",
-      "projects": "MVPs, platforms, internal tools",
-      "clients": "Founders and teams supported"
+    "description": "I own the path from unclear requirements to shipped product. That means discovery, architecture decisions, coordinating developers, and communicating progress. I work well with incomplete information, tight timelines, and the realities of early-stage constraints.",
+    "beliefs": {
+      "title": "What I believe",
+      "items": [
+        "Most MVP failures aren't technical — they're communication failures",
+        "The best architecture is the one your team can actually maintain",
+        "Clarity costs less than rework"
+      ]
     },
     "skills": "How I Work",
     "whatILead": "What I Lead",
@@ -46,9 +69,10 @@
   "contact": {
     "title": "Let's Talk",
     "subtitle": "Start a Conversation",
-    "description": "Tell me where you are and where you need to go. I'll help you figure out the path.",
-    "email": "Write to me",
-    "socials": "Or find me here"
+    "description": "Book a quick call. I'll tell you if I can help — no pitch, just clarity.",
+    "cta": "Book a 15-min Fit Call",
+    "email": "Or email me directly",
+    "socials": "Find me here"
   },
   "footer": {
     "rights": "All rights reserved.",

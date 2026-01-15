@@ -5,6 +5,12 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
+const stats = [
+  { value: '5+', key: 'experience' },
+  { value: '50+', key: 'projects' },
+  { value: '30+', key: 'clients' },
+];
+
 export default function Hero() {
   const t = useTranslations('hero');
 
@@ -104,19 +110,44 @@ export default function Hero() {
           </Link>
         </motion.div>
 
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.key}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+              className="text-center"
+            >
+              <div className="text-3xl md:text-4xl font-bold text-gradient-gold mb-1">
+                {stat.value}
+              </div>
+              <div className="text-muted text-xs uppercase tracking-wider">
+                {t(`stats.${stat.key}`)}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
         {/* Tech stack preview */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-20 flex items-center justify-center gap-8 flex-wrap"
+          transition={{ duration: 1, delay: 1.0 }}
+          className="mt-12 flex items-center justify-center gap-8 flex-wrap"
         >
           {['Laravel', 'Vue.js', 'PHP', 'Docker', 'PostgreSQL'].map((tech, index) => (
             <motion.span
               key={tech}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
+              transition={{ duration: 0.4, delay: 1.1 + index * 0.1 }}
               className="text-sm text-muted/60 uppercase tracking-widest"
             >
               {tech}

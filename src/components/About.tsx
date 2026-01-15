@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Compass, Users, MessageSquare, Calendar, Code2, Server, Cloud } from 'lucide-react';
+import { Compass, Users, MessageSquare, Calendar, Code2, Server, Cloud, Quote } from 'lucide-react';
 
 const whatILead = [
   { icon: Calendar, name: 'Discovery & Planning' },
@@ -17,11 +17,6 @@ const whatWeUse = [
   { icon: Cloud, name: 'Cloud, Docker, CI/CD' },
 ];
 
-const stats = [
-  { value: '5+', key: 'experience' },
-  { value: '50+', key: 'projects' },
-  { value: '30+', key: 'clients' },
-];
 
 export default function About() {
   const t = useTranslations('about');
@@ -52,31 +47,32 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* Stats */}
+        {/* Beliefs / POV */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-20"
+          className="max-w-3xl mx-auto mb-20"
         >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.key}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              className="text-center"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-gradient-gold mb-2">
-                {stat.value}
-              </div>
-              <div className="text-muted text-sm uppercase tracking-wider">
-                {t(`stats.${stat.key}`)}
-              </div>
-            </motion.div>
-          ))}
+          <h3 className="text-center text-sm font-medium text-gold-400 uppercase tracking-widest mb-8">
+            {t('beliefs.title')}
+          </h3>
+          <div className="space-y-4">
+            {(t.raw('beliefs.items') as string[]).map((belief, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                className="flex items-start gap-4 glass rounded-xl p-5 border border-gold-400/10"
+              >
+                <Quote className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" />
+                <p className="text-foreground/90 text-lg italic">{belief}</p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* How I Work */}

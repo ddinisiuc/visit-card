@@ -140,7 +140,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.0 }}
-          className="mt-12 flex items-center justify-center gap-8 flex-wrap"
+          className="mt-12 pb-20 flex items-center justify-center gap-8 flex-wrap"
         >
           {['Laravel', 'Vue.js', 'PHP', 'Docker', 'PostgreSQL'].map((tech, index) => (
             <motion.span
@@ -161,15 +161,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 text-muted/50"
+          className="text-muted/40"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ArrowDown className="w-4 h-4" />
+          <ArrowDown className="w-5 h-5" />
         </motion.div>
       </motion.div>
     </section>

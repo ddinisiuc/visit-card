@@ -15,15 +15,15 @@ export default function Footer() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="group flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-400 to-gold-500 flex items-center justify-center glow-gold-sm group-hover:scale-110 transition-transform duration-300">
                 <span className="text-navy-950 font-bold text-xl">D</span>
               </div>
-              <span className="text-2xl font-semibold text-foreground">
+              <span className="text-xl sm:text-2xl font-semibold text-foreground">
                 Daniil<span className="text-gold-400">.</span>dev
               </span>
             </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
             <h4 className="text-gold-400 font-semibold mb-4 uppercase tracking-wider text-sm">
               Connect
             </h4>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {socials.map((social) => (
                 <motion.a
                   key={social.name}
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-gold-400/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-gold-400/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-muted text-sm">
             {currentYear} Daniil. {t('rights')}
           </p>

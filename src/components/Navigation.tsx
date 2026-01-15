@@ -48,7 +48,7 @@ export default function Navigation() {
         isScrolled ? 'glass-strong py-4 border-b border-white/10' : 'py-6'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-500 flex items-center justify-center glow-gold-sm group-hover:scale-110 transition-transform duration-300">
@@ -78,7 +78,7 @@ export default function Navigation() {
           <div className="relative">
             <button
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-              className="flex items-center gap-2 px-3 py-2 rounded-full border border-gold-400/20 hover:border-gold-400/40 transition-colors duration-300"
+              className="flex items-center gap-2 px-4 py-3 rounded-full border border-gold-400/20 hover:border-gold-400/40 transition-colors duration-300 min-h-[44px]"
             >
               <Globe className="w-4 h-4 text-gold-400" />
               <span className="text-sm uppercase">{currentLocale}</span>
@@ -116,7 +116,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gold-400/10 transition-colors"
+            className="md:hidden p-3 rounded-lg hover:bg-gold-400/10 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-gold-400" />
@@ -134,7 +134,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong mt-4 mx-6 rounded-2xl overflow-hidden"
+            className="md:hidden glass-strong mt-4 mx-4 sm:mx-6 rounded-2xl overflow-hidden"
           >
             <div className="py-4">
               {navLinks.map((link, index) => (

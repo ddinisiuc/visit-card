@@ -19,9 +19,9 @@ export default function Hero() {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-navy-600/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gold-400/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-navy-600/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] bg-gold-400/5 rounded-full blur-3xl" />
 
         {/* Grid pattern */}
         <div
@@ -53,7 +53,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground/90 mb-8"
+          className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-foreground/90 mb-6 sm:mb-8 px-2 sm:px-0"
         >
           {t('role')}
         </motion.h2>
@@ -90,7 +90,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg text-muted max-w-2xl mx-auto mb-12"
+          className="text-base sm:text-lg text-muted max-w-2xl mx-auto mb-8 sm:mb-12"
         >
           {t('description')}
         </motion.p>
@@ -115,7 +115,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+          className="mt-10 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -125,7 +125,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-gradient-gold mb-1">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient-gold mb-1">
                 {stat.value}
               </div>
               <div className="text-muted text-xs uppercase tracking-wider">
@@ -140,7 +140,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.0 }}
-          className="mt-12 pb-20 flex items-center justify-center gap-8 flex-wrap"
+          className="mt-8 sm:mt-12 pb-16 sm:pb-20 flex items-center justify-center gap-4 sm:gap-8 flex-wrap"
         >
           {['Laravel', 'Vue.js', 'PHP', 'Docker', 'PostgreSQL'].map((tech, index) => (
             <motion.span
@@ -148,7 +148,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 1.1 + index * 0.1 }}
-              className="text-sm text-muted/60 uppercase tracking-widest"
+              className="text-xs sm:text-sm text-muted/60 uppercase tracking-widest"
             >
               {tech}
             </motion.span>

@@ -22,27 +22,27 @@ export default function About() {
   const t = useTranslations('about');
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-navy-900/50 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gold-400/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <span className="text-gold-400 uppercase tracking-widest text-sm font-medium">
             {t('title')}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
             {t('subtitle')}
           </h2>
-          <p className="text-muted max-w-2xl mx-auto text-lg">
+          <p className="text-muted max-w-2xl mx-auto text-base sm:text-lg">
             {t('description')}
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-3xl mx-auto mb-20"
+          className="max-w-3xl mx-auto mb-12 sm:mb-20"
         >
           <h3 className="text-center text-sm font-medium text-gold-400 uppercase tracking-widest mb-8">
             {t('beliefs.title')}
@@ -66,10 +66,10 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="flex items-start gap-4 glass rounded-xl p-5 border border-gold-400/10"
+                className="flex items-start gap-3 sm:gap-4 glass rounded-xl p-4 sm:p-5 border border-gold-400/10"
               >
                 <Quote className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" />
-                <p className="text-foreground/90 text-lg italic">{belief}</p>
+                <p className="text-foreground/90 text-base sm:text-lg italic">{belief}</p>
               </motion.div>
             ))}
           </div>
@@ -86,7 +86,7 @@ export default function About() {
             {t('skills')}
           </h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* What I Lead */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

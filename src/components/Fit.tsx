@@ -11,33 +11,33 @@ export default function Fit() {
   const notForYouItems = t.raw('notForYouItems') as string[];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-16 sm:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
 
-      <div className="relative max-w-5xl mx-auto px-6">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             {t('title')}
           </h2>
         </motion.div>
 
         {/* Two columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
           {/* For you */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass rounded-2xl p-8 border border-gold-400/20"
+            className="glass rounded-2xl p-5 sm:p-8 border border-gold-400/20"
           >
             <h3 className="text-lg font-semibold text-gold-400 mb-6 flex items-center gap-2">
               <Check className="w-5 h-5" />
@@ -66,7 +66,7 @@ export default function Fit() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass rounded-2xl p-8 border border-foreground/10"
+            className="glass rounded-2xl p-5 sm:p-8 border border-foreground/10"
           >
             <h3 className="text-lg font-semibold text-muted mb-6 flex items-center gap-2">
               <X className="w-5 h-5" />

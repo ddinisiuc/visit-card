@@ -1,3 +1,18 @@
+import { DiagramData } from '@/components/DiagramCanvas';
+import {
+  architectureDiagram,
+  deduplicationDiagram,
+  userJourneyDiagram,
+} from './invitro-diagrams';
+
+export interface TechnicalDiagram {
+  id: string;
+  title: string;
+  image?: string; // Optional - for backward compatibility
+  diagramData?: DiagramData; // New - canvas data
+  caption: string;
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -20,6 +35,37 @@ export interface Project {
   image: string;
   gallery?: string[];
   technologies: string[];
+
+  // New fields for enhanced project descriptions
+  clientContext?: {
+    en: string;
+    ru: string;
+  };
+
+  technicalSolution?: {
+    en: {
+      title: string;
+      description: string;
+      diagrams: TechnicalDiagram[];
+    };
+    ru: {
+      title: string;
+      description: string;
+      diagrams: TechnicalDiagram[];
+    };
+  };
+
+  impact?: {
+    en: {
+      metrics: string[];
+      qualitative: string[];
+    };
+    ru: {
+      metrics: string[];
+      qualitative: string[];
+    };
+  };
+
   features: {
     en: string[];
     ru: string[];
@@ -240,6 +286,176 @@ export const projects: Project[] = [
     },
     featured: true,
     year: 2023
+  },
+  {
+    id: '4',
+    slug: 'invitro-medical-platform',
+    title: {
+      en: 'Invitro Medical Services Platform',
+      ru: 'Медицинская платформа Invitro'
+    },
+    role: {
+      en: 'Team Lead & Technical Architect',
+      ru: 'Тимлид и технический архитектор'
+    },
+    shortDescription: {
+      en: 'Building a patient-facing platform for Moldova\'s largest medical lab network while integrating with a legacy CRM system full of duplicated data and architectural constraints.',
+      ru: 'Разработка платформы для пациентов крупнейшей сети медлабораторий Молдовы с интеграцией в устаревшую CRM-систему, полную дублей и архитектурных ограничений.'
+    },
+    fullDescription: {
+      en: 'Invitro Moldova, the country\'s leading private medical laboratory with 40+ branches, faced a critical bottleneck: all patient appointments, test bookings, and inquiries funneled through a single call center. Their outdated website wasn\'t user-friendly, and patients couldn\'t book online — let alone manage appointments for family members.\n\nThe business needed a modern platform where patients could register, book doctor appointments, schedule medical tests, and manage family accounts — reducing call center pressure while improving patient experience.\n\nI led a cross-functional team of 5-7 people (backend, frontend, designer, QA) through a year-long development cycle, reaching 80% completion before external factors led to project handoff.\n\nThe Real Challenge: Legacy CRM Integration\n\nThe biggest technical challenge wasn\'t building the new platform — it was integrating with Invitro\'s legacy CRM, which stored all critical data: patients, doctors, services, test catalogs with 4-5 levels of nested categories, and medical records. The system had duplicated patient records, inconsistent data structures, and limited API flexibility.\n\nWe needed to migrate data into a new architecture while maintaining continuous two-way synchronization — without disrupting Invitro\'s daily operations.\n\nOur Technical Solution\n\nAfter deep system analysis and team brainstorming, we designed a smart deduplication and synchronization strategy using master-slave record architecture with queue-based asynchronous processing. This allowed us to resolve thousands of duplicate patient records while maintaining data integrity and real-time sync.\n\nWe chose Laravel + Livewire over React/Vue primarily for development speed — critical given the tight timeline. Livewire handled AJAX interactions efficiently without the overhead of a separate frontend framework. TNTSearch enabled fast full-text search across 2,000+ medical tests with deep category hierarchies.\n\nProject Management Approach\n\nRan 2-week sprints with a co-located team. Weekly retrospectives and flexible prioritization allowed us to adapt as requirements evolved. I worked closely with QA to ensure they understood complex medical workflows and edge cases. Client sync calls were frequent initially, then shifted to weekly sprint reviews as trust built.\n\nOutcome\n\nThe project reached 80% completion over ~12 months before being handed to another team. The blocking factor was the legacy API team\'s bandwidth to support new integration requirements — an external constraint beyond our control.\n\nWhile the platform didn\'t launch under our leadership, the project demonstrated deep expertise in legacy system integration, data migration strategy, and managing technical delivery under real-world constraints.',
+      ru: 'Invitro Moldova, ведущая частная медицинская лаборатория страны с 40+ филиалами, столкнулась с критическим узким местом: все записи пациентов на приемы, анализы и запросы проходили через единый колл-центр. Устаревший сайт был неудобен, и пациенты не могли записаться онлайн — не говоря уже об управлении записями для членов семьи.\n\nБизнесу требовалась современная платформа, где пациенты могли бы регистрироваться, записываться к врачам, планировать анализы и управлять семейными аккаунтами — снижая нагрузку на колл-центр и улучшая пользовательский опыт.\n\nЯ руководил кросс-функциональной командой из 5-7 человек (backend, frontend, дизайнер, QA) в течение года разработки, достигнув 80% готовности до момента передачи проекта по внешним причинам.\n\nРеальный вызов: интеграция с legacy CRM\n\nГлавной технической сложностью была не разработка новой платформы — а интеграция с устаревшей CRM Invitro, где хранились все критически важные данные: пациенты, врачи, услуги, каталог анализов с 4-5 уровнями вложенных категорий и медицинские документы. В системе были дублированные записи пациентов, несогласованные структуры данных и ограниченная гибкость API.\n\nНам нужно было мигрировать данные в новую архитектуру с поддержкой непрерывной двусторонней синхронизации — не нарушая ежедневные операции Invitro.\n\nНаше техническое решение\n\nПосле глубокого анализа системы и мозговых штурмов команды, мы разработали умную стратегию дедупликации и синхронизации с использованием master-slave архитектуры записей и асинхронной обработки через очередь. Это позволило разрешить тысячи дублированных записей пациентов с сохранением целостности данных и синхронизации в реальном времени.\n\nМы выбрали Laravel + Livewire вместо React/Vue прежде всего из-за скорости разработки — критически важной при жёстких дедлайнах. Livewire эффективно обрабатывал AJAX-взаимодействия без накладных расходов отдельного frontend-фреймворка. TNTSearch обеспечил быстрый полнотекстовый поиск по 2000+ медицинским анализам с глубокой иерархией категорий.\n\nПодход к управлению проектом\n\nРаботали в 2-недельных спринтах с офисной командой. Еженедельные ретроспективы и гибкая приоритизация позволяли адаптироваться по мере изменения требований. Я плотно работал с QA, чтобы они понимали сложные медицинские workflow и граничные случаи. Созвоны с клиентом были частыми в начале, затем перешли к еженедельным спринт-ревью по мере роста доверия.\n\nИтог\n\nПроект достиг 80% готовности за ~12 месяцев, после чего был передан другой команде. Блокирующим фактором была пропускная способность команды legacy API для поддержки новых требований интеграции — внешнее ограничение вне нашего контроля.\n\nХотя платформа не была запущена под нашим руководством, проект продемонстрировал глубокую экспертизу в интеграции legacy-систем, стратегии миграции данных и управлении технической поставкой в условиях реальных ограничений.'
+    },
+    image: '/images/projects/invitro/hero.jpg',
+    gallery: [
+      '/images/projects/invitro/screenshot-1.jpg',
+      '/images/projects/invitro/screenshot-2.jpg'
+    ],
+    technologies: ['PHP', 'Laravel', 'Livewire', 'Redis', 'TNTSearch', 'HTML', 'SCSS', 'Git'],
+
+    clientContext: {
+      en: 'Leading medical laboratory network in Moldova · 40+ branches across 30+ cities · 2,000+ diagnostic tests · 20+ medical specialties · High call center load with thousands of daily patient inquiries',
+      ru: 'Ведущая сеть медицинских лабораторий в Молдове · 40+ филиалов в 30+ городах · 2000+ видов анализов · 20+ медицинских специальностей · Высокая нагрузка на колл-центр с тысячами ежедневных обращений пациентов'
+    },
+
+    technicalSolution: {
+      en: {
+        title: 'Technical Solution Architecture',
+        description: 'To solve the legacy integration challenge, we designed a three-layer solution focused on data integrity, real-time synchronization, and user experience.',
+        diagrams: [
+          {
+            id: 'architecture',
+            title: 'System Architecture',
+            diagramData: architectureDiagram,
+            caption: 'Integrated new patient platform with 40+ year old legacy CRM while maintaining daily operations across 40+ branches'
+          },
+          {
+            id: 'deduplication',
+            title: 'Deduplication Engine',
+            diagramData: deduplicationDiagram,
+            caption: 'Intelligent deduplication system resolved thousands of duplicate patient records using master-slave architecture and queue-based processing'
+          },
+          {
+            id: 'user-journey',
+            title: 'Patient Experience',
+            diagramData: userJourneyDiagram,
+            caption: 'Transformed patient experience from phone-dependent bookings to 24/7 self-service platform with family account management'
+          }
+        ]
+      },
+      ru: {
+        title: 'Архитектура технического решения',
+        description: 'Для решения задачи интеграции с legacy-системой мы разработали трёхуровневое решение с фокусом на целостность данных, синхронизацию в реальном времени и пользовательский опыт.',
+        diagrams: [
+          {
+            id: 'architecture',
+            title: 'Архитектура системы',
+            image: '/images/projects/invitro/diagram-architecture-ru.png',
+            caption: 'Интеграция новой платформы для пациентов с устаревшей CRM, работающей 40+ лет, без остановки ежедневных операций в 40+ филиалах'
+          },
+          {
+            id: 'deduplication',
+            title: 'Движок дедупликации',
+            image: '/images/projects/invitro/diagram-deduplication-ru.png',
+            caption: 'Интеллектуальная система дедупликации разрешила тысячи дублирующихся записей пациентов с использованием master-slave архитектуры и обработки через очередь'
+          },
+          {
+            id: 'user-journey',
+            title: 'Опыт пациента',
+            image: '/images/projects/invitro/diagram-user-journey-ru.png',
+            caption: 'Трансформировали опыт пациентов с телефонных записей на платформу самообслуживания 24/7 с управлением семейными аккаунтами'
+          }
+        ]
+      }
+    },
+
+    impact: {
+      en: {
+        metrics: [
+          'Reached 80% project completion over 12-month timeline',
+          'Designed deduplication system handling thousands of duplicate patient records',
+          'Enabled search across 2,000+ medical tests with 4-5 category depth levels',
+          'Managed team through 24+ two-week sprint cycles with consistent delivery'
+        ],
+        qualitative: [
+          'Created reusable pattern for legacy system integration applicable to similar healthcare modernization projects',
+          'Demonstrated technical leadership navigating external constraints and architectural complexity',
+          'Built robust data migration strategy balancing automation with admin oversight',
+          'Proved value of pragmatic technology choices (Livewire vs React/Vue) for accelerated delivery timelines'
+        ]
+      },
+      ru: {
+        metrics: [
+          'Достигнута 80% готовность проекта за 12-месячный timeline',
+          'Разработана система дедупликации для обработки тысяч дублированных записей пациентов',
+          'Реализован поиск по 2000+ медицинским анализам с глубиной 4-5 уровней категорий',
+          'Управлял командой через 24+ двухнедельных спринт-цикла с консистентной поставкой'
+        ],
+        qualitative: [
+          'Создан переиспользуемый паттерн интеграции legacy-систем, применимый к аналогичным проектам модернизации healthcare',
+          'Продемонстрировано техническое лидерство в навигации внешних ограничений и архитектурной сложности',
+          'Построена надёжная стратегия миграции данных с балансом автоматизации и админского контроля',
+          'Доказана ценность прагматичных технологических выборов (Livewire vs React/Vue) для ускорения timeline поставки'
+        ]
+      }
+    },
+
+    features: {
+      en: [
+        'Designed intelligent deduplication algorithm analyzing record recency, data richness, and phone/name matching to resolve thousands of duplicate patient records',
+        'Implemented master-slave record architecture with queue-based asynchronous synchronization between new platform and legacy CRM',
+        'Built admin dashboard for real-time monitoring and manual resolution of data conflicts during migration',
+        'Integrated TNTSearch for fast full-text search across 2,000+ medical tests with 4-5 levels of nested categories',
+        'Enabled family account management allowing users to book appointments for multiple family members',
+        'Chose Laravel + Livewire stack to accelerate development timeline without sacrificing interactivity or maintainability'
+      ],
+      ru: [
+        'Разработал интеллектуальный алгоритм дедупликации с анализом актуальности записей, полноты данных и сопоставления телефон/имя для разрешения тысяч дублей пациентов',
+        'Реализовал master-slave архитектуру записей с асинхронной синхронизацией через очередь между новой платформой и legacy CRM',
+        'Создал админ-панель для мониторинга в реальном времени и ручного разрешения конфликтов данных при миграции',
+        'Интегрировал TNTSearch для быстрого полнотекстового поиска по 2000+ медицинским анализам с 4-5 уровнями вложенных категорий',
+        'Реализовал управление семейными аккаунтами с возможностью записи на приём для нескольких членов семьи',
+        'Выбрал стек Laravel + Livewire для ускорения разработки без ущерба интерактивности и поддерживаемости'
+      ]
+    },
+
+    challenges: {
+      en: [
+        'Integrating with legacy CRM containing thousands of duplicate patient records with inconsistent data structures and limited API flexibility',
+        'Maintaining continuous two-way data synchronization without disrupting daily operations across 40+ clinics',
+        'External dependency: blocked by legacy API team\'s bandwidth to implement required integration endpoints',
+        'Managing complex medical catalog with 4-5 levels of nested test categories requiring efficient search architecture'
+      ],
+      ru: [
+        'Интеграция с legacy CRM, содержащей тысячи дублированных записей пациентов с несогласованными структурами данных и ограниченной гибкостью API',
+        'Поддержание непрерывной двусторонней синхронизации данных без нарушения ежедневных операций в 40+ филиалах',
+        'Внешняя зависимость: блокировка командой legacy API, не успевавшей реализовывать требуемые эндпоинты интеграции',
+        'Управление сложным медицинским каталогом с 4-5 уровнями вложенных категорий анализов, требующим эффективной архитектуры поиска'
+      ]
+    },
+
+    scope: {
+      en: [
+        'Led cross-functional team of 5-7 people (backend, frontend, designer, QA) through year-long development cycle',
+        'Designed system architecture and data migration strategy for legacy CRM integration',
+        'Ran 2-week sprints with weekly retrospectives and flexible prioritization responding to evolving requirements',
+        'Coordinated with client stakeholders through regular sprint reviews after establishing trust',
+        'Mentored QA team on complex medical workflows and edge case testing scenarios',
+        'Made strategic technology decisions balancing speed-to-market with long-term maintainability'
+      ],
+      ru: [
+        'Руководил кросс-функциональной командой из 5-7 человек (backend, frontend, дизайнер, QA) в течение года разработки',
+        'Спроектировал архитектуру системы и стратегию миграции данных для интеграции с legacy CRM',
+        'Вёл 2-недельные спринты с еженедельными ретроспективами и гибкой приоритизацией под меняющиеся требования',
+        'Координировал работу со стейкхолдерами клиента через регулярные спринт-ревью после установления доверия',
+        'Обучал QA-команду сложным медицинским workflow и сценариям тестирования граничных случаев',
+        'Принимал стратегические технологические решения, балансируя скорость выхода с долгосрочной поддерживаемостью'
+      ]
+    },
+
+    featured: true,
+    year: 2023,
+    liveUrl: 'https://www.invitro.md'
   }
 ];
 

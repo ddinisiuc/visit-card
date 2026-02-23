@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github, Check, AlertTriangle, Briefcase } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { Project } from '@/data/projects';
+import { TechnicalSolution } from '@/components/TechnicalSolution';
 
 interface ProjectDetailProps {
   project: Project;
@@ -95,6 +96,17 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
                 {project.fullDescription[locale]}
               </p>
             </div>
+
+            {/* Technical Solution - diagrams with tabs */}
+            {project.technicalSolution && (
+              <div>
+                <TechnicalSolution
+                  title={project.technicalSolution[locale].title}
+                  description={project.technicalSolution[locale].description}
+                  diagrams={project.technicalSolution[locale].diagrams}
+                />
+              </div>
+            )}
 
             {/* Challenges & Decisions - mini block */}
             <div className="glass rounded-2xl p-6 border border-gold-400/10">

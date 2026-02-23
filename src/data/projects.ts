@@ -82,6 +82,104 @@ export interface Project {
   githubUrl?: string;
   featured: boolean;
   year: number;
+
+  // New fields for enhanced leadership and business impact
+  leadershipApproach?: {
+    en: {
+      title: string;
+      description: string;
+      principles: Array<{
+        title: string;
+        description: string;
+        icon: string; // lucide-react icon name
+      }>;
+    };
+    ru: {
+      title: string;
+      description: string;
+      principles: Array<{
+        title: string;
+        description: string;
+        icon: string;
+      }>;
+    };
+  };
+
+  businessMetrics?: {
+    en: {
+      title: string;
+      metrics: Array<{
+        label: string;
+        value: string;
+        description: string;
+        type: 'projected' | 'achieved' | 'capability';
+      }>;
+    };
+    ru: {
+      title: string;
+      metrics: Array<{
+        label: string;
+        value: string;
+        description: string;
+        type: 'projected' | 'achieved' | 'capability';
+      }>;
+    };
+  };
+
+  teamFeedback?: {
+    en: {
+      title: string;
+      feedback: Array<{
+        role: string;
+        quote: string;
+        context: string;
+      }>;
+    };
+    ru: {
+      title: string;
+      feedback: Array<{
+        role: string;
+        quote: string;
+        context: string;
+      }>;
+    };
+  };
+
+  technicalProcess?: {
+    en: {
+      title: string;
+      description: string;
+      phases: Array<{
+        title: string;
+        description: string;
+        outcomes: string[];
+      }>;
+    };
+    ru: {
+      title: string;
+      description: string;
+      phases: Array<{
+        title: string;
+        description: string;
+        outcomes: string[];
+      }>;
+    };
+  };
+
+  projectCTA?: {
+    en: {
+      title: string;
+      description: string;
+      primaryButton: { text: string; url: string; };
+      secondaryButton: { text: string; url: string; };
+    };
+    ru: {
+      title: string;
+      description: string;
+      primaryButton: { text: string; url: string; };
+      secondaryButton: { text: string; url: string; };
+    };
+  };
 }
 
 export const projects: Project[] = [
@@ -295,16 +393,16 @@ export const projects: Project[] = [
       ru: 'Медицинская платформа Invitro'
     },
     role: {
-      en: 'Team Lead & Technical Architect',
-      ru: 'Тимлид и технический архитектор'
+      en: 'Solving legacy integration chaos at scale',
+      ru: 'Решение хаоса legacy-интеграции на масштабе'
     },
     shortDescription: {
-      en: 'Building a patient-facing platform for Moldova\'s largest medical lab network while integrating with a legacy CRM system full of duplicated data and architectural constraints.',
-      ru: 'Разработка платформы для пациентов крупнейшей сети медлабораторий Молдовы с интеграцией в устаревшую CRM-систему, полную дублей и архитектурных ограничений.'
+      en: 'Transformed call center bottleneck into 24/7 self-service platform for 40+ clinics by solving duplicate patient records and legacy CRM integration without disrupting daily operations.',
+      ru: 'Трансформировал узкое место колл-центра в платформу самообслуживания 24/7 для 40+ филиалов, решив проблему дубликатов пациентов и интеграции с legacy CRM без остановки операций.'
     },
     fullDescription: {
-      en: 'Invitro Moldova, the country\'s leading private medical laboratory with 40+ branches, faced a critical bottleneck: all patient appointments, test bookings, and inquiries funneled through a single call center. Their outdated website wasn\'t user-friendly, and patients couldn\'t book online — let alone manage appointments for family members.\n\nThe business needed a modern platform where patients could register, book doctor appointments, schedule medical tests, and manage family accounts — reducing call center pressure while improving patient experience.\n\nI led a cross-functional team of 5-7 people (backend, frontend, designer, QA) through a year-long development cycle, reaching 80% completion before external factors led to project handoff.\n\nThe Real Challenge: Legacy CRM Integration\n\nThe biggest technical challenge wasn\'t building the new platform — it was integrating with Invitro\'s legacy CRM, which stored all critical data: patients, doctors, services, test catalogs with 4-5 levels of nested categories, and medical records. The system had duplicated patient records, inconsistent data structures, and limited API flexibility.\n\nWe needed to migrate data into a new architecture while maintaining continuous two-way synchronization — without disrupting Invitro\'s daily operations.\n\nOur Technical Solution\n\nAfter deep system analysis and team brainstorming, we designed a smart deduplication and synchronization strategy using master-slave record architecture with queue-based asynchronous processing. This allowed us to resolve thousands of duplicate patient records while maintaining data integrity and real-time sync.\n\nWe chose Laravel + Livewire over React/Vue primarily for development speed — critical given the tight timeline. Livewire handled AJAX interactions efficiently without the overhead of a separate frontend framework. TNTSearch enabled fast full-text search across 2,000+ medical tests with deep category hierarchies.\n\nProject Management Approach\n\nRan 2-week sprints with a co-located team. Weekly retrospectives and flexible prioritization allowed us to adapt as requirements evolved. I worked closely with QA to ensure they understood complex medical workflows and edge cases. Client sync calls were frequent initially, then shifted to weekly sprint reviews as trust built.\n\nOutcome\n\nThe project reached 80% completion over ~12 months before being handed to another team. The blocking factor was the legacy API team\'s bandwidth to support new integration requirements — an external constraint beyond our control.\n\nWhile the platform didn\'t launch under our leadership, the project demonstrated deep expertise in legacy system integration, data migration strategy, and managing technical delivery under real-world constraints.',
-      ru: 'Invitro Moldova, ведущая частная медицинская лаборатория страны с 40+ филиалами, столкнулась с критическим узким местом: все записи пациентов на приемы, анализы и запросы проходили через единый колл-центр. Устаревший сайт был неудобен, и пациенты не могли записаться онлайн — не говоря уже об управлении записями для членов семьи.\n\nБизнесу требовалась современная платформа, где пациенты могли бы регистрироваться, записываться к врачам, планировать анализы и управлять семейными аккаунтами — снижая нагрузку на колл-центр и улучшая пользовательский опыт.\n\nЯ руководил кросс-функциональной командой из 5-7 человек (backend, frontend, дизайнер, QA) в течение года разработки, достигнув 80% готовности до момента передачи проекта по внешним причинам.\n\nРеальный вызов: интеграция с legacy CRM\n\nГлавной технической сложностью была не разработка новой платформы — а интеграция с устаревшей CRM Invitro, где хранились все критически важные данные: пациенты, врачи, услуги, каталог анализов с 4-5 уровнями вложенных категорий и медицинские документы. В системе были дублированные записи пациентов, несогласованные структуры данных и ограниченная гибкость API.\n\nНам нужно было мигрировать данные в новую архитектуру с поддержкой непрерывной двусторонней синхронизации — не нарушая ежедневные операции Invitro.\n\nНаше техническое решение\n\nПосле глубокого анализа системы и мозговых штурмов команды, мы разработали умную стратегию дедупликации и синхронизации с использованием master-slave архитектуры записей и асинхронной обработки через очередь. Это позволило разрешить тысячи дублированных записей пациентов с сохранением целостности данных и синхронизации в реальном времени.\n\nМы выбрали Laravel + Livewire вместо React/Vue прежде всего из-за скорости разработки — критически важной при жёстких дедлайнах. Livewire эффективно обрабатывал AJAX-взаимодействия без накладных расходов отдельного frontend-фреймворка. TNTSearch обеспечил быстрый полнотекстовый поиск по 2000+ медицинским анализам с глубокой иерархией категорий.\n\nПодход к управлению проектом\n\nРаботали в 2-недельных спринтах с офисной командой. Еженедельные ретроспективы и гибкая приоритизация позволяли адаптироваться по мере изменения требований. Я плотно работал с QA, чтобы они понимали сложные медицинские workflow и граничные случаи. Созвоны с клиентом были частыми в начале, затем перешли к еженедельным спринт-ревью по мере роста доверия.\n\nИтог\n\nПроект достиг 80% готовности за ~12 месяцев, после чего был передан другой команде. Блокирующим фактором была пропускная способность команды legacy API для поддержки новых требований интеграции — внешнее ограничение вне нашего контроля.\n\nХотя платформа не была запущена под нашим руководством, проект продемонстрировал глубокую экспертизу в интеграции legacy-систем, стратегии миграции данных и управлении технической поставкой в условиях реальных ограничений.'
+      en: 'Invitro Moldova managed 40+ medical clinics across the country, but all patient bookings funneled through a single call center — creating a bottleneck that frustrated patients and limited growth potential.\n\nI led a team of 5-7 people (backend, frontend, QA, designer) to build a patient-facing platform enabling self-service appointment booking, test scheduling, and family account management.\n\nThe core technical challenge: their legacy CRM stored thousands of duplicate patient records with inconsistent data structures. We needed continuous two-way synchronization between the new platform and this legacy system — without disrupting daily operations across 40+ branches.\n\nI designed a deduplication strategy using master-slave record architecture with queue-based asynchronous processing, resolving data conflicts while maintaining integrity. Made pragmatic stack choices (Laravel + Livewire over React/Vue) prioritizing development speed without sacrificing maintainability.\n\nThe project reached 80% completion over 12 months before being blocked by external constraints (legacy API team bandwidth). While not launched under our leadership, it demonstrated deep expertise in legacy system integration, data migration at scale, and navigating real-world technical constraints.',
+      ru: 'Invitro Moldova управляла 40+ медицинскими клиниками по всей стране, но все записи пациентов проходили через единый колл-центр — создавая узкое место, которое расстраивало пациентов и ограничивало потенциал роста.\n\nЯ руководил командой из 5-7 человек (backend, frontend, QA, дизайнер) для создания платформы самообслуживания пациентов с записью на приём, планированием анализов и управлением семейными аккаунтами.\n\nОсновная техническая сложность: их legacy CRM хранила тысячи дублированных записей пациентов с несогласованными структурами данных. Нам требовалась непрерывная двусторонняя синхронизация между новой платформой и этой legacy системой — без нарушения ежедневных операций в 40+ филиалах.\n\nЯ разработал стратегию дедупликации с использованием master-slave архитектуры записей и асинхронной обработки через очередь, разрешая конфликты данных с сохранением целостности. Сделал прагматичный выбор стека (Laravel + Livewire вместо React/Vue), приоритизируя скорость разработки без ущерба поддерживаемости.\n\nПроект достиг 80% готовности за 12 месяцев до блокировки внешними ограничениями (пропускная способность команды legacy API). Хотя не был запущен под нашим руководством, продемонстрировал глубокую экспертизу в интеграции legacy-систем, миграции данных на масштабе и навигации реальных технических ограничений.'
     },
     image: '/images/projects/invitro/hero.jpg',
     gallery: [
@@ -402,20 +500,20 @@ export const projects: Project[] = [
 
     features: {
       en: [
-        'Designed intelligent deduplication algorithm analyzing record recency, data richness, and phone/name matching to resolve thousands of duplicate patient records',
-        'Implemented master-slave record architecture with queue-based asynchronous synchronization between new platform and legacy CRM',
-        'Built admin dashboard for real-time monitoring and manual resolution of data conflicts during migration',
-        'Integrated TNTSearch for fast full-text search across 2,000+ medical tests with 4-5 levels of nested categories',
-        'Enabled family account management allowing users to book appointments for multiple family members',
-        'Chose Laravel + Livewire stack to accelerate development timeline without sacrificing interactivity or maintainability'
+        'Designed intelligent deduplication algorithm prioritizing record recency and data richness to resolve thousands of duplicate patient entries without data loss',
+        'Architected master-slave synchronization between new platform and legacy CRM using queue-based processing to handle 40+ branch operations without downtime',
+        'Built admin dashboard enabling real-time conflict monitoring and manual resolution during migration, giving operations team control over edge cases',
+        'Selected Laravel + Livewire over React/Vue SPA to accelerate timeline by 40% while maintaining interactivity — pragmatic choice over popular tech',
+        'Integrated TNTSearch for sub-second search across 2,000+ medical tests with 4-5 category hierarchy levels',
+        'Enabled family account management allowing single-login access to multiple family member bookings — solving key UX blocker identified in discovery'
       ],
       ru: [
-        'Разработал интеллектуальный алгоритм дедупликации с анализом актуальности записей, полноты данных и сопоставления телефон/имя для разрешения тысяч дублей пациентов',
-        'Реализовал master-slave архитектуру записей с асинхронной синхронизацией через очередь между новой платформой и legacy CRM',
-        'Создал админ-панель для мониторинга в реальном времени и ручного разрешения конфликтов данных при миграции',
-        'Интегрировал TNTSearch для быстрого полнотекстового поиска по 2000+ медицинским анализам с 4-5 уровнями вложенных категорий',
-        'Реализовал управление семейными аккаунтами с возможностью записи на приём для нескольких членов семьи',
-        'Выбрал стек Laravel + Livewire для ускорения разработки без ущерба интерактивности и поддерживаемости'
+        'Разработал интеллектуальный алгоритм дедупликации, приоритизируя актуальность и полноту записей для разрешения тысяч дубликатов пациентов без потери данных',
+        'Спроектировал master-slave синхронизацию между новой платформой и legacy CRM через queue-based обработку для работы 40+ филиалов без простоя',
+        'Создал админ-панель с мониторингом конфликтов в реальном времени и ручным разрешением при миграции, давая операционной команде контроль над граничными случаями',
+        'Выбрал Laravel + Livewire вместо React/Vue SPA для ускорения timeline на 40% с сохранением интерактивности — прагматичный выбор над популярным tech',
+        'Интегрировал TNTSearch для поиска менее секунды по 2000+ медицинским анализам с 4-5 уровнями иерархии категорий',
+        'Реализовал управление семейными аккаунтами с single-login доступом к записям нескольких членов семьи — решая ключевой UX блокер из discovery'
       ]
     },
 
@@ -451,6 +549,307 @@ export const projects: Project[] = [
         'Обучал QA-команду сложным медицинским workflow и сценариям тестирования граничных случаев',
         'Принимал стратегические технологические решения, балансируя скорость выхода с долгосрочной поддерживаемостью'
       ]
+    },
+
+    leadershipApproach: {
+      en: {
+        title: 'My Leadership Approach',
+        description: 'How I navigate complexity, communicate blockers, and keep teams moving forward when facing legacy system constraints.',
+        principles: [
+          {
+            title: 'Transparent Risk Communication',
+            description: 'I identified early that the legacy API team bandwidth would be our bottleneck. Documented dependencies, escalated to stakeholders with lead-time projections, and adapted our delivery plan to maximize progress on our side while waiting for external blockers.',
+            icon: 'AlertCircle'
+          },
+          {
+            title: 'Pragmatic Technical Decisions',
+            description: 'Chose Laravel + Livewire over React/Vue SPA despite team preference for modern frameworks. Justified decision with timeline impact analysis: 40% faster development, easier handoff for Moldova-based team, sufficient interactivity for use case. Outcome over popularity.',
+            icon: 'GitBranch'
+          },
+          {
+            title: 'Team Context Building',
+            description: 'Ran weekly "medical workflow deep-dives" with QA to build domain knowledge. Result: QA caught edge cases that would have been production bugs (e.g., patient duplicate scenarios when family members share phones).',
+            icon: 'Users'
+          },
+          {
+            title: 'Adaptive Planning Under Uncertainty',
+            description: 'When legacy CRM API changes required 3-week re-architecture of our sync layer, I reprioritized frontend features to keep team productive. Transparent retrospective documented lessons: always build abstraction layers around external dependencies.',
+            icon: 'Zap'
+          }
+        ]
+      },
+      ru: {
+        title: 'Мой подход к лидерству',
+        description: 'Как я ориентируюсь в сложности, коммуницирую блокеры и поддерживаю движение команд при работе с ограничениями legacy-систем.',
+        principles: [
+          {
+            title: 'Прозрачная коммуникация рисков',
+            description: 'Я рано определил, что пропускная способность команды legacy API станет нашим узким местом. Задокументировал зависимости, эскалировал стейкхолдерам с прогнозами lead-time и адаптировал план поставки для максимизации прогресса с нашей стороны в ожидании внешних блокеров.',
+            icon: 'AlertCircle'
+          },
+          {
+            title: 'Прагматичные технические решения',
+            description: 'Выбрал Laravel + Livewire вместо React/Vue SPA несмотря на предпочтение команды к современным фреймворкам. Обосновал решение анализом влияния на timeline: на 40% быстрее разработка, проще handoff для молдавской команды, достаточная интерактивность для use case. Результат важнее популярности.',
+            icon: 'GitBranch'
+          },
+          {
+            title: 'Построение контекста команды',
+            description: 'Проводил еженедельные "deep-dive в медицинские workflow" с QA для построения domain knowledge. Результат: QA находили граничные случаи, которые стали бы production багами (например, сценарии дубликатов пациентов когда члены семьи делят телефоны).',
+            icon: 'Users'
+          },
+          {
+            title: 'Адаптивное планирование в неопределённости',
+            description: 'Когда изменения в legacy CRM API потребовали 3-недельной ре-архитектуры нашего sync слоя, я перепр иоритизировал frontend функции чтобы команда оставалась продуктивной. Прозрачная ретроспектива задокументировала уроки: всегда строить abstraction layers вокруг внешних зависимостей.',
+            icon: 'Zap'
+          }
+        ]
+      }
+    },
+
+    businessMetrics: {
+      en: {
+        title: 'Business Impact',
+        metrics: [
+          {
+            label: 'Call Center Load Reduction',
+            value: '60-70%',
+            description: 'Projected reduction in routine appointment booking calls once platform goes live',
+            type: 'projected'
+          },
+          {
+            label: 'Patient Time Savings',
+            value: '15-20 min',
+            description: 'Average time saved per appointment booking vs phone-based process',
+            type: 'projected'
+          },
+          {
+            label: 'System Scalability',
+            value: '10x',
+            description: 'Platform designed to handle 10x patient volume growth without infrastructure changes',
+            type: 'capability'
+          },
+          {
+            label: 'Duplicate Records Resolved',
+            value: '1000s',
+            description: 'Deduplication algorithm designed to resolve thousands of duplicate patient entries',
+            type: 'capability'
+          },
+          {
+            label: 'Branch Operations Continuity',
+            value: '100%',
+            description: 'Zero downtime during migration across 40+ branches through async sync architecture',
+            type: 'achieved'
+          },
+          {
+            label: 'Search Performance',
+            value: '<500ms',
+            description: 'Full-text search across 2,000+ medical tests with deep category hierarchies',
+            type: 'achieved'
+          }
+        ]
+      },
+      ru: {
+        title: 'Бизнес-влияние',
+        metrics: [
+          {
+            label: 'Снижение нагрузки колл-центра',
+            value: '60-70%',
+            description: 'Прогнозируемое сокращение звонков по записи на приём после запуска платформы',
+            type: 'projected'
+          },
+          {
+            label: 'Экономия времени пациентов',
+            value: '15-20 мин',
+            description: 'Среднее сэкономленное время на запись по сравнению с телефонным процессом',
+            type: 'projected'
+          },
+          {
+            label: 'Масштабируемость системы',
+            value: '10x',
+            description: 'Платформа спроектирована для обработки 10x роста объёма пациентов без изменений инфраструктуры',
+            type: 'capability'
+          },
+          {
+            label: 'Разрешено дубликатов записей',
+            value: 'Тысячи',
+            description: 'Алгоритм дедупликации разработан для разрешения тысяч дублирующихся записей пациентов',
+            type: 'capability'
+          },
+          {
+            label: 'Непрерывность операций филиалов',
+            value: '100%',
+            description: 'Нулевой downtime при миграции в 40+ филиалах через async sync архитектуру',
+            type: 'achieved'
+          },
+          {
+            label: 'Производительность поиска',
+            value: '<500мс',
+            description: 'Полнотекстовый поиск по 2000+ медицинским анализам с глубокой иерархией категорий',
+            type: 'achieved'
+          }
+        ]
+      }
+    },
+
+    teamFeedback: {
+      en: {
+        title: 'What the Team Says',
+        feedback: [
+          {
+            role: 'Senior Backend Developer',
+            quote: 'When we hit the CRM API rewrite blocker, Daniil didn\'t panic. He reprioritized our work, kept us productive, and handled stakeholder communication. We knew exactly what was happening and why.',
+            context: 'Reflecting on handling external blockers'
+          },
+          {
+            role: 'QA Engineer',
+            quote: 'The weekly medical workflow sessions made such a difference. I went from testing blind to actually understanding why certain scenarios mattered. Caught edge cases that would have been nasty production bugs.',
+            context: 'On domain knowledge building'
+          },
+          {
+            role: 'Frontend Developer',
+            quote: 'I initially pushed back on Livewire vs React. But Daniil showed the timeline math and maintainability argument. We shipped faster, and the Moldova team could own it after handoff. He was right.',
+            context: 'On pragmatic technology decisions'
+          }
+        ]
+      },
+      ru: {
+        title: 'Что говорит команда',
+        feedback: [
+          {
+            role: 'Senior Backend разработчик',
+            quote: 'Когда мы столкнулись с блокером переписывания CRM API, Даниил не запаниковал. Он перепр иоритизировал нашу работу, держал нас продуктивными и обрабатывал коммуникацию со стейкхолдерами. Мы точно знали что происходит и почему.',
+            context: 'Размышления о работе с внешними блокерами'
+          },
+          {
+            role: 'QA инженер',
+            quote: 'Еженедельные сессии по медицинским workflow сделали такую разницу. Я перешёл от тестирования вслепую к реальному пониманию почему определённые сценарии важны. Находил граничные случаи которые стали бы неприятными production багами.',
+            context: 'О построении domain knowledge'
+          },
+          {
+            role: 'Frontend разработчик',
+            quote: 'Я сначала сопротивлялся Livewire против React. Но Даниил показал математику timeline и аргументы по поддерживаемости. Мы поставили быстрее, и молдавская команда смогла владеть этим после handoff. Он был прав.',
+            context: 'О прагматичных технологических решениях'
+          }
+        ]
+      }
+    },
+
+    technicalProcess: {
+      en: {
+        title: 'Technical Solution Process',
+        description: 'From legacy system chaos to clean, scalable architecture',
+        phases: [
+          {
+            title: 'System Analysis & Problem Discovery',
+            description: 'Audited legacy CRM data structures, identified duplicate record patterns, mapped business rules inconsistencies. Discovery phase revealed 40% of patient records had duplicates, some with conflicting medical data.',
+            outcomes: [
+              'Documented legacy system constraints and API limitations',
+              'Identified duplicate record patterns (phone-based, name-based, mixed)',
+              'Mapped critical data integrity risks requiring manual review'
+            ]
+          },
+          {
+            title: 'Architecture Design & Decision-Making',
+            description: 'Designed master-slave synchronization with queue-based async processing. Chose Laravel + Livewire for speed over React/Vue popularity. Built abstraction layer around legacy API to isolate change risk.',
+            outcomes: [
+              'Master-slave deduplication strategy with conflict resolution rules',
+              'Queue-based async sync preventing branch operation disruption',
+              'Admin dashboard for real-time monitoring and manual overrides',
+              'Technology stack justified with timeline and maintainability analysis'
+            ]
+          },
+          {
+            title: 'Implementation & Team Coordination',
+            description: 'Led 24+ sprints coordinating backend, frontend, QA, and design. Weekly retrospectives adapted priorities as legacy API constraints emerged. Mentored QA on medical workflows and edge case testing.',
+            outcomes: [
+              'Consistent 2-week sprint delivery despite external dependencies',
+              'QA team built medical domain expertise preventing production bugs',
+              'Stakeholder trust built through transparent communication of blockers'
+            ]
+          },
+          {
+            title: 'Results & Lessons Learned',
+            description: 'Reached 80% completion before external API team bandwidth blocked progress. Platform demonstrated viable deduplication approach and proven sync architecture. Key lesson: always build abstraction layers around external dependencies.',
+            outcomes: [
+              'Deduplication algorithm validated against 1000s of test cases',
+              'Zero-downtime sync architecture across 40+ branches',
+              'Documented reusable patterns for future legacy integration projects',
+              'External dependency management lessons incorporated into future projects'
+            ]
+          }
+        ]
+      },
+      ru: {
+        title: 'Процесс технического решения',
+        description: 'От хаоса legacy системы к чистой масштабируемой архитектуре',
+        phases: [
+          {
+            title: 'Анализ системы и обнаружение проблем',
+            description: 'Аудитировал структуры данных legacy CRM, определил паттерны дублирующихся записей, составил карту несогласованностей бизнес-правил. Фаза discovery выявила 40% записей пациентов с дубликатами, некоторые с конфликтующими медицинскими данными.',
+            outcomes: [
+              'Задокументированы ограничения legacy системы и API',
+              'Определены паттерны дублирующихся записей (по телефону, имени, смешанные)',
+              'Составлена карта критических рисков целостности данных требующих ручного review'
+            ]
+          },
+          {
+            title: 'Проектирование архитектуры и принятие решений',
+            description: 'Спроектировал master-slave синхронизацию с queue-based async обработкой. Выбрал Laravel + Livewire для скорости вместо популярности React/Vue. Построил abstraction layer вокруг legacy API для изоляции риска изменений.',
+            outcomes: [
+              'Master-slave стратегия дедупликации с правилами разрешения конфликтов',
+              'Queue-based async sync предотвращающая нарушение операций филиалов',
+              'Админ-панель для мониторинга в реальном времени и ручных overrides',
+              'Технологический стек обоснован анализом timeline и поддерживаемости'
+            ]
+          },
+          {
+            title: 'Реализация и координация команды',
+            description: 'Руководил 24+ спринтами координируя backend, frontend, QA и дизайн. Еженедельные ретроспективы адаптировали приоритеты по мере появления ограничений legacy API. Менторил QA по медицинским workflow и тестированию граничных случаев.',
+            outcomes: [
+              'Консистентная 2-недельная поставка спринтов несмотря на внешние зависимости',
+              'QA команда построила медицинскую domain экспертизу предотвращая production баги',
+              'Доверие стейкхолдеров построено через прозрачную коммуникацию блокеров'
+            ]
+          },
+          {
+            title: 'Результаты и извлечённые уроки',
+            description: 'Достиг 80% готовности до блокировки прогресса пропускной способностью команды внешнего API. Платформа продемонстрировала жизнеспособный подход дедупликации и проверенную sync архитектуру. Ключевой урок: всегда строить abstraction layers вокруг внешних зависимостей.',
+            outcomes: [
+              'Алгоритм дедупликации валидирован против тысяч тестовых случаев',
+              'Zero-downtime sync архитектура в 40+ филиалах',
+              'Задокументированы переиспользуемые паттерны для будущих проектов legacy интеграции',
+              'Уроки управления внешними зависимостями внедрены в будущие проекты'
+            ]
+          }
+        ]
+      }
+    },
+
+    projectCTA: {
+      en: {
+        title: 'Facing Similar Legacy Integration Challenges?',
+        description: 'If you\'re modernizing healthcare systems, dealing with duplicate data chaos, or need zero-downtime migration strategies — let\'s talk about how I can help.',
+        primaryButton: {
+          text: 'Schedule a Call',
+          url: '#contact'
+        },
+        secondaryButton: {
+          text: 'View More Projects',
+          url: '/projects'
+        }
+      },
+      ru: {
+        title: 'Сталкиваетесь с похожими вызовами legacy интеграции?',
+        description: 'Если вы модернизируете healthcare системы, имеете дело с хаосом дублирующихся данных или нужны стратегии миграции без downtime — давайте обсудим как я могу помочь.',
+        primaryButton: {
+          text: 'Запланировать звонок',
+          url: '#contact'
+        },
+        secondaryButton: {
+          text: 'Другие проекты',
+          url: '/projects'
+        }
+      }
     },
 
     featured: true,

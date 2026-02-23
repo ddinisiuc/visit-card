@@ -6,6 +6,11 @@ import { ArrowLeft, ExternalLink, Github, Check, AlertTriangle, Briefcase } from
 import { Link } from '@/i18n/navigation';
 import { Project } from '@/data/projects';
 import { TechnicalSolution } from '@/components/TechnicalSolution';
+import { LeadershipApproach } from '@/components/LeadershipApproach';
+import { BusinessMetrics } from '@/components/BusinessMetrics';
+import { TechnicalProcess } from '@/components/TechnicalProcess';
+import { TeamFeedback } from '@/components/TeamFeedback';
+import { ProjectCTA } from '@/components/ProjectCTA';
 
 interface ProjectDetailProps {
   project: Project;
@@ -97,6 +102,15 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
               </p>
             </div>
 
+            {/* Client Context - compact */}
+            {project.clientContext && (
+              <div className="glass rounded-2xl p-6 border border-gold-400/10">
+                <p className="text-sm text-foreground/70 leading-relaxed">
+                  {project.clientContext[locale]}
+                </p>
+              </div>
+            )}
+
             {/* Technical Solution - diagrams with tabs */}
             {project.technicalSolution && (
               <div>
@@ -106,6 +120,23 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
                   diagrams={project.technicalSolution[locale].diagrams}
                 />
               </div>
+            )}
+
+            {/* Technical Process */}
+            {project.technicalProcess && (
+              <TechnicalProcess
+                title={project.technicalProcess[locale].title}
+                description={project.technicalProcess[locale].description}
+                phases={project.technicalProcess[locale].phases}
+              />
+            )}
+
+            {/* Business Metrics */}
+            {project.businessMetrics && (
+              <BusinessMetrics
+                title={project.businessMetrics[locale].title}
+                metrics={project.businessMetrics[locale].metrics}
+              />
             )}
 
             {/* Challenges & Decisions - mini block */}
@@ -177,6 +208,23 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
                 ))}
               </ul>
             </div>
+
+            {/* Leadership Approach */}
+            {project.leadershipApproach && (
+              <LeadershipApproach
+                title={project.leadershipApproach[locale].title}
+                description={project.leadershipApproach[locale].description}
+                principles={project.leadershipApproach[locale].principles}
+              />
+            )}
+
+            {/* Team Feedback */}
+            {project.teamFeedback && (
+              <TeamFeedback
+                title={project.teamFeedback[locale].title}
+                feedback={project.teamFeedback[locale].feedback}
+              />
+            )}
           </motion.div>
 
           {/* Sidebar */}
@@ -234,6 +282,23 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
             </div>
           </motion.div>
         </div>
+
+        {/* Project CTA - Full Width */}
+        {project.projectCTA && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16"
+          >
+            <ProjectCTA
+              title={project.projectCTA[locale].title}
+              description={project.projectCTA[locale].description}
+              primaryButton={project.projectCTA[locale].primaryButton}
+              secondaryButton={project.projectCTA[locale].secondaryButton}
+            />
+          </motion.div>
+        )}
       </div>
     </div>
   );

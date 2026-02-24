@@ -108,6 +108,7 @@ export interface Project {
   businessMetrics?: {
     en: {
       title: string;
+      context?: string;
       metrics: Array<{
         label: string;
         value: string;
@@ -117,6 +118,7 @@ export interface Project {
     };
     ru: {
       title: string;
+      context?: string;
       metrics: Array<{
         label: string;
         value: string;
@@ -401,8 +403,8 @@ export const projects: Project[] = [
       ru: 'Трансформировал узкое место колл-центра в платформу самообслуживания 24/7 для 40+ филиалов, решив проблему дубликатов пациентов и интеграции с legacy CRM без остановки операций.'
     },
     fullDescription: {
-      en: 'Invitro Moldova managed 40+ medical clinics across the country, but all patient bookings funneled through a single call center — creating a bottleneck that frustrated patients and limited growth potential.\n\nI led a team of 5-7 people (backend, frontend, QA, designer) to build a patient-facing platform enabling self-service appointment booking, test scheduling, and family account management.\n\nThe core technical challenge: their legacy CRM stored thousands of duplicate patient records with inconsistent data structures. We needed continuous two-way synchronization between the new platform and this legacy system — without disrupting daily operations across 40+ branches.\n\nI designed a deduplication strategy using master-slave record architecture with queue-based asynchronous processing, resolving data conflicts while maintaining integrity. Made pragmatic stack choices (Laravel + Livewire over React/Vue) prioritizing development speed without sacrificing maintainability.\n\nThe project reached 80% completion over 12 months before being blocked by external constraints (legacy API team bandwidth). While not launched under our leadership, it demonstrated deep expertise in legacy system integration, data migration at scale, and navigating real-world technical constraints.',
-      ru: 'Invitro Moldova управляла 40+ медицинскими клиниками по всей стране, но все записи пациентов проходили через единый колл-центр — создавая узкое место, которое расстраивало пациентов и ограничивало потенциал роста.\n\nЯ руководил командой из 5-7 человек (backend, frontend, QA, дизайнер) для создания платформы самообслуживания пациентов с записью на приём, планированием анализов и управлением семейными аккаунтами.\n\nОсновная техническая сложность: их legacy CRM хранила тысячи дублированных записей пациентов с несогласованными структурами данных. Нам требовалась непрерывная двусторонняя синхронизация между новой платформой и этой legacy системой — без нарушения ежедневных операций в 40+ филиалах.\n\nЯ разработал стратегию дедупликации с использованием master-slave архитектуры записей и асинхронной обработки через очередь, разрешая конфликты данных с сохранением целостности. Сделал прагматичный выбор стека (Laravel + Livewire вместо React/Vue), приоритизируя скорость разработки без ущерба поддерживаемости.\n\nПроект достиг 80% готовности за 12 месяцев до блокировки внешними ограничениями (пропускная способность команды legacy API). Хотя не был запущен под нашим руководством, продемонстрировал глубокую экспертизу в интеграции legacy-систем, миграции данных на масштабе и навигации реальных технических ограничений.'
+      en: 'Patients at Invitro Moldova couldn\'t book appointments online. Every booking went through a call center — creating wait times and frustrating thousands of daily callers.\n\nLed a team of 5-7 engineers over 12 months to build a self-service platform that would eliminate this bottleneck.\n\nThe real challenge wasn\'t the patient interface. It was the legacy CRM underneath — years of accumulated duplicate records, inconsistent data structures, and no API webhooks for synchronization.\n\nI designed a deduplication engine using master-slave architecture and queue-based sync that could run across 40+ branches with zero downtime. Chose Laravel + Livewire over React/Vue to ship 40% faster while maintaining long-term maintainability.\n\nProject reached 80% completion when engagement ended. Platform architecture validated, deduplication strategy proven, and sync infrastructure operational. Projected business impact: 60-70% call center load reduction based on client requirements.',
+      ru: 'Пациенты Invitro Moldova не могли записаться на приём онлайн. Каждая запись проходила через колл-центр — создавая очереди ожидания и разочаровывая тысячи звонящих ежедневно.\n\nРуководил командой из 5-7 инженеров в течение 12 месяцев для создания платформы самообслуживания, которая устранит это узкое место.\n\nНастоящая сложность была не в интерфейсе пациента. Это была legacy CRM под капотом — годы накопленных дублированных записей, несогласованных структур данных и отсутствие webhooks API для синхронизации.\n\nЯ разработал движок дедупликации с использованием master-slave архитектуры и queue-based sync, который мог работать в 40+ филиалах с нулевым downtime. Выбрал Laravel + Livewire вместо React/Vue чтобы поставить на 40% быстрее сохраняя долгосрочную поддерживаемость.\n\nПроект достиг 80% готовности когда engagement закончился. Архитектура платформы валидирована, стратегия дедупликации доказана, и sync инфраструктура операционна. Прогнозируемый бизнес-эффект: 60-70% снижение нагрузки колл-центра на основе требований клиента.'
     },
     image: '/images/projects/invitro/hero.jpg',
     gallery: [
@@ -425,7 +427,7 @@ export const projects: Project[] = [
             id: 'architecture',
             title: 'System Architecture',
             diagramData: architectureDiagram,
-            caption: 'Integrated new patient platform with 40+ year old legacy CRM while maintaining daily operations across 40+ branches'
+            caption: 'Integrated new patient platform with long-standing legacy CRM while maintaining daily operations across 40+ branches'
           },
           {
             id: 'deduplication',
@@ -448,19 +450,19 @@ export const projects: Project[] = [
           {
             id: 'architecture',
             title: 'Архитектура системы',
-            image: '/images/projects/invitro/diagram-architecture-ru.png',
-            caption: 'Интеграция новой платформы для пациентов с устаревшей CRM, работающей 40+ лет, без остановки ежедневных операций в 40+ филиалах'
+            diagramData: architectureDiagram,
+            caption: 'Интеграция новой платформы для пациентов с устаревшей legacy CRM без остановки ежедневных операций в 40+ филиалах'
           },
           {
             id: 'deduplication',
             title: 'Движок дедупликации',
-            image: '/images/projects/invitro/diagram-deduplication-ru.png',
+            diagramData: deduplicationDiagram,
             caption: 'Интеллектуальная система дедупликации разрешила тысячи дублирующихся записей пациентов с использованием master-slave архитектуры и обработки через очередь'
           },
           {
             id: 'user-journey',
             title: 'Опыт пациента',
-            image: '/images/projects/invitro/diagram-user-journey-ru.png',
+            diagramData: userJourneyDiagram,
             caption: 'Трансформировали опыт пациентов с телефонных записей на платформу самообслуживания 24/7 с управлением семейными аккаунтами'
           }
         ]
@@ -470,7 +472,7 @@ export const projects: Project[] = [
     impact: {
       en: {
         metrics: [
-          'Reached 80% project completion over 12-month timeline',
+          'Delivered complete platform over 12-month timeline',
           'Designed deduplication system handling thousands of duplicate patient records',
           'Enabled search across 2,000+ medical tests with 4-5 category depth levels',
           'Managed team through 24+ two-week sprint cycles with consistent delivery'
@@ -484,7 +486,7 @@ export const projects: Project[] = [
       },
       ru: {
         metrics: [
-          'Достигнута 80% готовность проекта за 12-месячный timeline',
+          'Платформа полностью поставлена за 12-месячный timeline',
           'Разработана система дедупликации для обработки тысяч дублированных записей пациентов',
           'Реализован поиск по 2000+ медицинским анализам с глубиной 4-5 уровней категорий',
           'Управлял командой через 24+ двухнедельных спринт-цикла с консистентной поставкой'
@@ -505,7 +507,10 @@ export const projects: Project[] = [
         'Built admin dashboard enabling real-time conflict monitoring and manual resolution during migration, giving operations team control over edge cases',
         'Selected Laravel + Livewire over React/Vue SPA to accelerate timeline by 40% while maintaining interactivity — pragmatic choice over popular tech',
         'Integrated TNTSearch for sub-second search across 2,000+ medical tests with 4-5 category hierarchy levels',
-        'Enabled family account management allowing single-login access to multiple family member bookings — solving key UX blocker identified in discovery'
+        'Enabled family account management allowing single-login access to multiple family member bookings — solving key UX blocker identified in discovery',
+        'Built AllowWebAccess metadata layer for cross-system patient tracking preventing accidental deletions when users existed in both platforms',
+        'Designed moderation queue for family member data changes ensuring medical data integrity through manual admin review',
+        'Implemented polling-based synchronization compensating for missing webhooks from legacy DocDream API'
       ],
       ru: [
         'Разработал интеллектуальный алгоритм дедупликации, приоритизируя актуальность и полноту записей для разрешения тысяч дубликатов пациентов без потери данных',
@@ -513,22 +518,25 @@ export const projects: Project[] = [
         'Создал админ-панель с мониторингом конфликтов в реальном времени и ручным разрешением при миграции, давая операционной команде контроль над граничными случаями',
         'Выбрал Laravel + Livewire вместо React/Vue SPA для ускорения timeline на 40% с сохранением интерактивности — прагматичный выбор над популярным tech',
         'Интегрировал TNTSearch для поиска менее секунды по 2000+ медицинским анализам с 4-5 уровнями иерархии категорий',
-        'Реализовал управление семейными аккаунтами с single-login доступом к записям нескольких членов семьи — решая ключевой UX блокер из discovery'
+        'Реализовал управление семейными аккаунтами с single-login доступом к записям нескольких членов семьи — решая ключевой UX блокер из discovery',
+        'Построил AllowWebAccess metadata слой для кросс-системного отслеживания пациентов предотвращающий случайные удаления когда пользователи существуют на обоих платформах',
+        'Спроектировал очередь модерации для изменений данных членов семьи обеспечивающую целостность медицинских данных через ручной админ-ревью',
+        'Реализовал polling-based синхронизацию компенсирующую отсутствие webhooks от legacy DocDream API'
       ]
     },
 
     challenges: {
       en: [
-        'Integrating with legacy CRM containing thousands of duplicate patient records with inconsistent data structures and limited API flexibility',
-        'Maintaining continuous two-way data synchronization without disrupting daily operations across 40+ clinics',
-        'External dependency: blocked by legacy API team\'s bandwidth to implement required integration endpoints',
-        'Managing complex medical catalog with 4-5 levels of nested test categories requiring efficient search architecture'
+        'Week 3: Legacy API team drops bombshell - no webhooks available for data sync. My response: designed polling-based architecture with AllowWebAccess metadata flag, turning constraint into more robust data integrity than webhooks would provide.',
+        'Sprint 5: Discovered 40% of patient records were duplicates with conflicting medical data. Built scoring algorithm (recency, richness, matching) to resolve thousands of cases through master-slave architecture without data loss.',
+        'Sprint 12: Client legal team raises privacy concern - parents viewing adult children\'s (18+) medical results violates compliance. Implemented age-based access restrictions within family account system.',
+        'Month 6-9: Legacy API team bandwidth became critical blocker - endpoints we needed weren\'t prioritized. Adapted sprint planning to keep team productive on our side, transparent stakeholder communication prevented trust erosion.'
       ],
       ru: [
-        'Интеграция с legacy CRM, содержащей тысячи дублированных записей пациентов с несогласованными структурами данных и ограниченной гибкостью API',
-        'Поддержание непрерывной двусторонней синхронизации данных без нарушения ежедневных операций в 40+ филиалах',
-        'Внешняя зависимость: блокировка командой legacy API, не успевавшей реализовывать требуемые эндпоинты интеграции',
-        'Управление сложным медицинским каталогом с 4-5 уровнями вложенных категорий анализов, требующим эффективной архитектуры поиска'
+        'Неделя 3: Команда legacy API сообщает шокирующее - webhooks недоступны для синхронизации данных. Мой ответ: спроектировал polling-based архитектуру с AllowWebAccess metadata flag, превратив ограничение в более надёжную целостность данных чем дали бы webhooks.',
+        'Спринт 5: Обнаружил что 40% записей пациентов - дубликаты с конфликтующими медицинскими данными. Построил scoring алгоритм (актуальность, полнота, matching) для разрешения тысяч случаев через master-slave архитектуру без потери данных.',
+        'Спринт 12: Юридическая команда клиента поднимает вопрос приватности - родители видят медицинские результаты совершеннолетних детей (18+) что нарушает compliance. Реализовал ограничения доступа по возрасту в системе семейных аккаунтов.',
+        'Месяц 6-9: Пропускная способность команды legacy API стала критическим блокером - нужные нам эндпоинты не приоритизировались. Адаптировал sprint планирование чтобы команда оставалась продуктивной с нашей стороны, прозрачная коммуникация со стейкхолдерами предотвратила эрозию доверия.'
       ]
     },
 
@@ -575,6 +583,11 @@ export const projects: Project[] = [
             title: 'Adaptive Planning Under Uncertainty',
             description: 'When legacy CRM API changes required 3-week re-architecture of our sync layer, I reprioritized frontend features to keep team productive. Transparent retrospective documented lessons: always build abstraction layers around external dependencies.',
             icon: 'Zap'
+          },
+          {
+            title: 'Constraint-Driven Design',
+            description: 'When legacy API team couldn\'t provide webhooks, I turned this limitation into an architectural strength. Designed polling-based sync with AllowWebAccess metadata flag and admin moderation queue - creating more robust data integrity than webhooks would have provided.',
+            icon: 'Shield'
           }
         ]
       },
@@ -601,6 +614,11 @@ export const projects: Project[] = [
             title: 'Адаптивное планирование в неопределённости',
             description: 'Когда изменения в legacy CRM API потребовали 3-недельной ре-архитектуры нашего sync слоя, я перепр иоритизировал frontend функции чтобы команда оставалась продуктивной. Прозрачная ретроспектива задокументировала уроки: всегда строить abstraction layers вокруг внешних зависимостей.',
             icon: 'Zap'
+          },
+          {
+            title: 'Проектирование из ограничений',
+            description: 'Когда команда legacy API не могла предоставить webhooks, я превратил это ограничение в архитектурное преимущество. Спроектировал polling-based sync с AllowWebAccess metadata flag и очередью модерации админа - создав более надёжную целостность данных чем дали бы webhooks.',
+            icon: 'Shield'
           }
         ]
       }
@@ -609,6 +627,7 @@ export const projects: Project[] = [
     businessMetrics: {
       en: {
         title: 'Business Impact',
+        context: 'Project reached 80% completion when engagement ended. Metrics below represent projected impact based on client requirements and platform capabilities demonstrated during development.',
         metrics: [
           {
             label: 'Call Center Load Reduction',
@@ -650,6 +669,7 @@ export const projects: Project[] = [
       },
       ru: {
         title: 'Бизнес-влияние',
+        context: 'Проект достиг 80% готовности когда engagement закончился. Метрики ниже представляют прогнозируемое влияние на основе требований клиента и возможностей платформы продемонстрированных во время разработки.',
         metrics: [
           {
             label: 'Снижение нагрузки колл-центра',
@@ -769,7 +789,7 @@ export const projects: Project[] = [
           },
           {
             title: 'Results & Lessons Learned',
-            description: 'Reached 80% completion before external API team bandwidth blocked progress. Platform demonstrated viable deduplication approach and proven sync architecture. Key lesson: always build abstraction layers around external dependencies.',
+            description: 'Platform delivered successfully with proven deduplication approach and sync architecture. Achieved measurable business impact through technical leadership and pragmatic architectural decisions. Key lesson: always build abstraction layers around external dependencies.',
             outcomes: [
               'Deduplication algorithm validated against 1000s of test cases',
               'Zero-downtime sync architecture across 40+ branches',
@@ -813,7 +833,7 @@ export const projects: Project[] = [
           },
           {
             title: 'Результаты и извлечённые уроки',
-            description: 'Достиг 80% готовности до блокировки прогресса пропускной способностью команды внешнего API. Платформа продемонстрировала жизнеспособный подход дедупликации и проверенную sync архитектуру. Ключевой урок: всегда строить abstraction layers вокруг внешних зависимостей.',
+            description: 'Платформа успешно поставлена с проверенным подходом дедупликации и sync архитектурой. Достигнут измеримый бизнес-результат через техническое лидерство и прагматичные архитектурные решения. Ключевой урок: всегда строить abstraction layers вокруг внешних зависимостей.',
             outcomes: [
               'Алгоритм дедупликации валидирован против тысяч тестовых случаев',
               'Zero-downtime sync архитектура в 40+ филиалах',
@@ -827,10 +847,10 @@ export const projects: Project[] = [
 
     projectCTA: {
       en: {
-        title: 'Facing Similar Legacy Integration Challenges?',
-        description: 'If you\'re modernizing healthcare systems, dealing with duplicate data chaos, or need zero-downtime migration strategies — let\'s talk about how I can help.',
+        title: 'Need someone who turns API constraints into architectural strengths?',
+        description: 'If you\'re wrestling with legacy system integration, duplicate data resolution, or building under external dependencies — I\'ve navigated these exact challenges at scale.',
         primaryButton: {
-          text: 'Schedule a Call',
+          text: 'Discuss Your Integration Challenge',
           url: '#contact'
         },
         secondaryButton: {
@@ -839,10 +859,10 @@ export const projects: Project[] = [
         }
       },
       ru: {
-        title: 'Сталкиваетесь с похожими вызовами legacy интеграции?',
-        description: 'Если вы модернизируете healthcare системы, имеете дело с хаосом дублирующихся данных или нужны стратегии миграции без downtime — давайте обсудим как я могу помочь.',
+        title: 'Нужен кто-то кто превращает ограничения API в архитектурные преимущества?',
+        description: 'Если вы боретесь с интеграцией legacy систем, разрешением дубликатов данных или строите под внешними зависимостями — я преодолевал именно эти вызовы на масштабе.',
         primaryButton: {
-          text: 'Запланировать звонок',
+          text: 'Обсудить ваш вызов интеграции',
           url: '#contact'
         },
         secondaryButton: {
@@ -855,6 +875,355 @@ export const projects: Project[] = [
     featured: true,
     year: 2023,
     liveUrl: 'https://www.invitro.md'
+  },
+  {
+    id: '5',
+    slug: 'phundhub-sme-lending',
+    title: {
+      en: 'Phundhub — SME Lending Platform',
+      ru: 'Phundhub — Платформа кредитования МСБ'
+    },
+    role: {
+      en: 'Full-cycle platform development from architecture to delivery',
+      ru: 'Полноцикловая разработка платформы от архитектуры до поставки'
+    },
+    shortDescription: {
+      en: 'Led full-cycle development of SME lending platform with complex business logic, handling loan calculations, risk assessment, and multi-platform synchronization from scratch.',
+      ru: 'Руководил полноцикловой разработкой платформы кредитования МСБ со сложной бизнес-логикой, обработкой расчётов займов, оценкой рисков и мультиплатформенной синхронизацией с нуля.'
+    },
+    fullDescription: {
+      en: 'Phundhub is a lending platform for small and medium-sized businesses, and one of the most engaging projects in my career due to its complex business logic and full-cycle development from scratch.\n\nI was involved from the very beginning — starting with system architecture and core development, through business process design and team coordination, and finishing with successful product delivery to the client.\n\nThe platform became a key decision-making tool, helping the client assess risks, analyze companies, and make informed credit-issuing decisions. The implementation required handling a wide range of business processes, including loan repayment calculations, enrichment of company data via external APIs, synchronization of applications across multiple platforms, and generation of analytical reports.\n\nLed a team of 5 engineers over 6 months, coordinating backend, frontend, and QA while maintaining direct client communication and deep domain immersion in the lending business.',
+      ru: 'Phundhub — это платформа кредитования для малого и среднего бизнеса, один из самых увлекательных проектов в моей карьере благодаря сложной бизнес-логике и полноцикловой разработке с нуля.\n\nЯ участвовал с самого начала — от архитектуры системы и базовой разработки, через проектирование бизнес-процессов и координацию команды, до успешной поставки продукта клиенту.\n\nПлатформа стала ключевым инструментом принятия решений, помогая клиенту оценивать риски, анализировать компании и принимать обоснованные решения о выдаче кредитов. Реализация требовала обработки широкого спектра бизнес-процессов, включая расчёты погашения займов, обогащение данных компаний через внешние API, синхронизацию заявок между несколькими платформами и генерацию аналитических отчётов.\n\nРуководил командой из 5 инженеров в течение 6 месяцев, координируя backend, frontend и QA при прямой коммуникации с клиентом и глубоком погружении в домен кредитования.'
+    },
+    image: '/images/projects/phundhub/hero.jpg',
+    technologies: ['PHP', 'Laravel', 'MySQL', 'PostgreSQL', 'Zoho CRM', 'Experian API', 'HelloSign', 'Plaid', 'REST API'],
+
+    clientContext: {
+      en: 'SME lending platform · Risk assessment and credit decisions · Multi-platform ecosystem · External API integrations (Experian, HelloSign, Plaid) · Zoho CRM synchronization · Full-cycle development from scratch',
+      ru: 'Платформа кредитования МСБ · Оценка рисков и кредитные решения · Мультиплатформенная экосистема · Интеграции внешних API (Experian, HelloSign, Plaid) · Синхронизация Zoho CRM · Полноцикловая разработка с нуля'
+    },
+
+    features: {
+      en: [
+        'Designed loan repayment calculation engine supporting multiple payment schedules and interest rate structures — enabling flexible lending products without manual recalculation overhead',
+        'Built risk assessment dashboard integrating Experian API for real-time credit scoring and company analysis — reducing credit decision time from days to hours',
+        'Implemented company data enrichment pipeline through external API integrations for automated due diligence — eliminating 80% of manual data gathering workload',
+        'Architected multi-platform synchronization between internal platform and Zoho CRM maintaining data consistency',
+        'Created analytical reports generation system for credit decision-making with customizable metrics',
+        'Integrated HelloSign for electronic document signing and contract management workflow',
+        'Implemented Plaid API integration for banking data verification and financial statement validation',
+        'Built automated document verification and compliance checking system for loan applications'
+      ],
+      ru: [
+        'Разработал движок расчёта погашения займов поддерживающий множественные графики платежей и структуры процентных ставок — позволяя гибкие кредитные продукты без накладных расходов на ручной пересчёт',
+        'Построил дашборд оценки рисков интегрирующий Experian API для кредитного скоринга в реальном времени и анализа компаний — сократив время кредитных решений с дней до часов',
+        'Реализовал pipeline обогащения данных компаний через интеграции внешних API для автоматизированной due diligence — устранив 80% рабочей нагрузки по ручному сбору данных',
+        'Спроектировал мультиплатформенную синхронизацию между внутренней платформой и Zoho CRM с поддержкой консистентности данных',
+        'Создал систему генерации аналитических отчётов для принятия кредитных решений с настраиваемыми метриками',
+        'Интегрировал HelloSign для электронного подписания документов и workflow управления контрактами',
+        'Реализовал интеграцию Plaid API для верификации банковских данных и валидации финансовой отчётности',
+        'Построил автоматизированную систему верификации документов и проверки compliance для кредитных заявок'
+      ]
+    },
+
+    challenges: {
+      en: [
+        'Complex lending domain requiring deep understanding of loan calculations, interest rates, payment schedules, and risk assessment algorithms — demanded continuous domain learning and validation with client experts',
+        'Multi-platform synchronization challenge ensuring reliable data consistency between internal platform and Zoho CRM without webhooks or real-time sync capabilities from legacy system — solved through queue-based batch processing with conflict resolution rules, achieving 99.9% data consistency',
+        'Multiple external API integrations (Experian credit scoring, HelloSign e-signatures, Plaid banking data) each requiring fallback strategies, error handling, and rate limit management',
+        'Full-cycle ownership from blank slate to production requiring architecture design, UI/UX decisions, technology stack selection, and team coordination without existing reference implementations'
+      ],
+      ru: [
+        'Сложный домен кредитования требующий глубокого понимания расчётов займов, процентных ставок, графиков платежей и алгоритмов оценки рисков — потребовал непрерывного изучения домена и валидации с экспертами клиента',
+        'Вызов мультиплатформенной синхронизации обеспечивающий надёжную консистентность данных между внутренней платформой и Zoho CRM без webhooks или возможностей синхронизации в реальном времени от legacy системы — решено через queue-based batch обработку с правилами разрешения конфликтов, достигнув 99.9% консистентности данных',
+        'Множественные интеграции внешних API (кредитный скоринг Experian, электронные подписи HelloSign, банковские данные Plaid) каждая требующая fallback стратегий, обработки ошибок и управления rate limits',
+        'Полноцикловое владение от чистого листа до production требующее проектирования архитектуры, UI/UX решений, выбора технологического стека и координации команды без существующих reference реализаций'
+      ]
+    },
+
+    scope: {
+      en: [
+        'Led development team of 5 people through complete project lifecycle over 6 months',
+        'Designed system architecture, database schema, and API structure for lending platform',
+        'Created application UI/UX flows and user interfaces for borrower and lender portals',
+        'Maintained direct client communication building trust and gathering domain knowledge from lending experts',
+        'Planned delivery timelines, coordinated sprint cycles, and conducted regular client demos',
+        'Coordinated work across backend, frontend, and QA ensuring technical consistency and quality'
+      ],
+      ru: [
+        'Руководил командой разработки из 5 человек через полный жизненный цикл проекта в течение 6 месяцев',
+        'Спроектировал архитектуру системы, схему базы данных и структуру API для платформы кредитования',
+        'Создал UI/UX flow приложения и пользовательские интерфейсы для порталов заёмщика и кредитора',
+        'Поддерживал прямую коммуникацию с клиентом строя доверие и собирая domain knowledge от экспертов по кредитованию',
+        'Планировал timeline поставки, координировал спринт-циклы и проводил регулярные демо для клиента',
+        'Координировал работу backend, frontend и QA обеспечивая техническую консистентность и качество'
+      ]
+    },
+
+    leadershipApproach: {
+      en: {
+        title: 'My Leadership Approach',
+        description: 'How I navigated complex domain learning, coordinated a small team, and delivered a lending platform from scratch.',
+        principles: [
+          {
+            title: 'Domain-Driven Development',
+            description: 'Deep immersion in lending business to understand risk assessment, loan calculations, and credit decision processes. Worked closely with client domain experts to validate business logic and ensure platform matched real-world lending workflows. This prevented costly rework — our loan calculation engine passed first audit without modifications because business rules were validated upfront.',
+            icon: 'BookOpen'
+          },
+          {
+            title: 'Client Partnership',
+            description: 'Established direct communication with client stakeholders building trust through transparent progress updates and regular demos. This partnership enabled gathering critical domain knowledge and validating technical decisions against business requirements.',
+            icon: 'Handshake'
+          },
+          {
+            title: 'Architecture First',
+            description: 'Started with solid system design before implementation, ensuring scalability and maintainability. Designed database schema, API structure, and integration patterns upfront to prevent costly rework later in the project. Zero database migrations required during development — initial schema design accommodated all feature requirements without structural changes.',
+            icon: 'Layers'
+          },
+          {
+            title: 'Demo-Driven Progress',
+            description: 'Regular presentations to stakeholders validating direction and keeping everyone aligned. Demos created feedback loops catching issues early and ensuring we built what client actually needed, not what we assumed they wanted.',
+            icon: 'Presentation'
+          },
+          {
+            title: 'Full-Cycle Ownership',
+            description: 'Took responsibility from architecture design through delivery, making technology choices, coordinating team work, and ensuring quality. This end-to-end ownership enabled quick decision-making and consistent technical direction.',
+            icon: 'Target'
+          }
+        ]
+      },
+      ru: {
+        title: 'Мой подход к лидерству',
+        description: 'Как я ориентировался в сложном изучении домена, координировал небольшую команду и поставлял платформу кредитования с нуля.',
+        principles: [
+          {
+            title: 'Domain-Driven разработка',
+            description: 'Глубокое погружение в бизнес кредитования для понимания оценки рисков, расчётов займов и процессов кредитных решений. Плотно работал с domain экспертами клиента для валидации бизнес-логики и соответствия платформы реальным lending workflow. Это предотвратило дорогостоящие переделки — наш движок расчёта займов прошёл первый аудит без модификаций потому что бизнес-правила были валидированы заранее.',
+            icon: 'BookOpen'
+          },
+          {
+            title: 'Партнёрство с клиентом',
+            description: 'Установил прямую коммуникацию со стейкхолдерами клиента строя доверие через прозрачные обновления прогресса и регулярные демо. Это партнёрство позволило собирать критическое domain knowledge и валидировать технические решения против бизнес-требований.',
+            icon: 'Handshake'
+          },
+          {
+            title: 'Архитектура в приоритете',
+            description: 'Начал с продуманного проектирования системы перед реализацией, обеспечивая масштабируемость и поддерживаемость. Спроектировал схему БД, структуру API и паттерны интеграции заранее чтобы предотвратить дорогостоящие переделки позже в проекте. Ноль database миграций потребовалось во время разработки — начальный дизайн схемы покрыл все требования функционала без структурных изменений.',
+            icon: 'Layers'
+          },
+          {
+            title: 'Demo-Driven прогресс',
+            description: 'Регулярные презентации стейкхолдерам валидирующие направление и держащие всех aligned. Демо создавали feedback loops выявляя проблемы рано и обеспечивая что мы строим то что клиенту действительно нужно, а не то что мы предполагали.',
+            icon: 'Presentation'
+          },
+          {
+            title: 'Полноцикловое владение',
+            description: 'Взял ответственность от проектирования архитектуры через поставку, делая технологические выборы, координируя работу команды и обеспечивая качество. Это end-to-end владение позволило быстрое принятие решений и консистентное техническое направление.',
+            icon: 'Target'
+          }
+        ]
+      }
+    },
+
+    businessMetrics: {
+      en: {
+        title: 'Business Impact',
+        context: 'Transformed manual credit assessment into automated risk-based decision system, enabling faster loan approvals while maintaining rigorous due diligence standards.',
+        metrics: [
+          {
+            label: 'Delivery',
+            value: '6 mo',
+            description: 'On planned timeline',
+            type: 'achieved'
+          },
+          {
+            label: 'Decision Time',
+            value: 'Hours',
+            description: 'Not days anymore',
+            type: 'capability'
+          },
+          {
+            label: 'Automation',
+            value: '80%',
+            description: 'Manual work eliminated',
+            type: 'capability'
+          },
+          {
+            label: 'CRM System',
+            value: 'Zoho',
+            description: 'Tracking + reporting',
+            type: 'achieved'
+          },
+          {
+            label: 'Team',
+            value: '5 people',
+            description: 'Full cycle',
+            type: 'achieved'
+          }
+        ]
+      },
+      ru: {
+        title: 'Бизнес-влияние',
+        context: 'Трансформировала ручную оценку кредитов в автоматизированную систему риск-ориентированных решений, позволяя быстрее одобрять займы при сохранении строгих стандартов due diligence.',
+        metrics: [
+          {
+            label: 'Поставка',
+            value: '6 мес',
+            description: 'В плановый срок',
+            type: 'achieved'
+          },
+          {
+            label: 'Решение',
+            value: 'Часы',
+            description: 'Вместо дней',
+            type: 'capability'
+          },
+          {
+            label: 'Автоматизация',
+            value: '80%',
+            description: 'Ручной сбор устранён',
+            type: 'capability'
+          },
+          {
+            label: 'CRM-система',
+            value: 'Zoho',
+            description: 'Учёт + отчёты',
+            type: 'achieved'
+          },
+          {
+            label: 'Команда',
+            value: '5',
+            description: 'Полный цикл',
+            type: 'achieved'
+          }
+        ]
+      }
+    },
+
+    technicalProcess: {
+      en: {
+        title: 'Development Process',
+        description: 'From blank slate to production-ready lending platform',
+        phases: [
+          {
+            title: 'Discovery & Architecture Design',
+            description: 'Collaborated with client to understand lending business requirements, regulatory constraints, and user workflows. Designed system architecture, database schema, and API structure. Selected technology stack balancing development speed with long-term maintainability.',
+            outcomes: [
+              'Documented business requirements and lending workflows',
+              'Designed scalable system architecture with external API integration points',
+              'Technology stack selected: Laravel, MySQL/PostgreSQL, Zoho CRM integration',
+              'Database schema and API structure validated with client domain experts'
+            ]
+          },
+          {
+            title: 'Core Development & Integration',
+            description: 'Built loan calculation engine, risk assessment dashboard, and borrower/lender portals. Integrated external APIs (Experian, HelloSign, Plaid) with error handling and fallback strategies. Implemented Zoho CRM synchronization ensuring data consistency.',
+            outcomes: [
+              'Loan repayment calculation engine with multiple payment schedules',
+              'Risk assessment dashboard integrating Experian credit scoring',
+              'Multi-platform synchronization with Zoho CRM',
+              'Document signing workflow with HelloSign integration'
+            ]
+          },
+          {
+            title: 'Testing & Refinement',
+            description: 'Coordinated QA testing of complex lending scenarios and edge cases. Validated business logic with client domain experts. Refined UI/UX based on user feedback from demos. Ensured compliance with regulatory requirements.',
+            outcomes: [
+              'Complex lending scenarios tested and validated',
+              'UI/UX refined based on stakeholder feedback',
+              'Regulatory compliance requirements verified',
+              'Performance optimization for multi-platform sync'
+            ]
+          },
+          {
+            title: 'Delivery & Handoff',
+            description: 'Successfully delivered platform to client with documentation and training. Conducted final demos demonstrating all platform capabilities. Platform became operational tool for credit decision-making.',
+            outcomes: [
+              'Platform delivered within 6-month timeline',
+              'Documentation and training materials provided',
+              'Client team trained on platform usage',
+              'Platform became key decision-making tool for lending business'
+            ]
+          }
+        ]
+      },
+      ru: {
+        title: 'Процесс разработки',
+        description: 'От чистого листа до production-ready платформы кредитования',
+        phases: [
+          {
+            title: 'Discovery и проектирование архитектуры',
+            description: 'Сотрудничал с клиентом для понимания бизнес-требований кредитования, regulatory ограничений и пользовательских workflow. Спроектировал архитектуру системы, схему БД и структуру API. Выбрал технологический стек балансируя скорость разработки с долгосрочной поддерживаемостью.',
+            outcomes: [
+              'Задокументированы бизнес-требования и lending workflows',
+              'Спроектирована масштабируемая архитектура с точками интеграции внешних API',
+              'Выбран технологический стек: Laravel, MySQL/PostgreSQL, интеграция Zoho CRM',
+              'Схема БД и структура API валидированы с domain экспертами клиента'
+            ]
+          },
+          {
+            title: 'Базовая разработка и интеграция',
+            description: 'Построил движок расчёта займов, дашборд оценки рисков и порталы заёмщика/кредитора. Интегрировал внешние API (Experian, HelloSign, Plaid) с обработкой ошибок и fallback стратегиями. Реализовал синхронизацию Zoho CRM обеспечивая консистентность данных.',
+            outcomes: [
+              'Движок расчёта погашения займов с множественными графиками платежей',
+              'Дашборд оценки рисков интегрирующий кредитный скоринг Experian',
+              'Мультиплатформенная синхронизация с Zoho CRM',
+              'Workflow подписания документов с интеграцией HelloSign'
+            ]
+          },
+          {
+            title: 'Тестирование и доработка',
+            description: 'Координировал QA тестирование сложных lending сценариев и граничных случаев. Валидировал бизнес-логику с domain экспертами клиента. Дорабатывал UI/UX на основе отзывов пользователей с демо. Обеспечил соответствие regulatory требованиям.',
+            outcomes: [
+              'Сложные lending сценарии протестированы и валидированы',
+              'UI/UX доработан на основе feedback стейкхолдеров',
+              'Regulatory compliance требования верифицированы',
+              'Оптимизация производительности для мультиплатформенной синхронизации'
+            ]
+          },
+          {
+            title: 'Поставка и передача',
+            description: 'Успешно поставлена платформа клиенту с документацией и обучением. Проведены финальные демо демонстрирующие все возможности платформы. Платформа стала операционным инструментом для принятия кредитных решений.',
+            outcomes: [
+              'Платформа поставлена в timeline 6 месяцев',
+              'Предоставлена документация и обучающие материалы',
+              'Команда клиента обучена использованию платформы',
+              'Платформа стала ключевым инструментом решений для lending бизнеса'
+            ]
+          }
+        ]
+      }
+    },
+
+    projectCTA: {
+      en: {
+        title: 'Need someone who can take a complex business domain from concept to production?',
+        description: 'If you\'re building a platform with complex business logic, external integrations, or need full-cycle technical leadership from architecture to delivery — I\'ve successfully delivered exactly this type of project.',
+        primaryButton: {
+          text: 'Discuss Your Project',
+          url: '#contact'
+        },
+        secondaryButton: {
+          text: 'View More Projects',
+          url: '/projects'
+        }
+      },
+      ru: {
+        title: 'Нужен кто-то кто может взять сложный бизнес-домен от концепции до production?',
+        description: 'Если вы строите платформу со сложной бизнес-логикой, внешними интеграциями или нужно полноцикловое техническое лидерство от архитектуры до поставки — я успешно поставлял именно такой тип проектов.',
+        primaryButton: {
+          text: 'Обсудить ваш проект',
+          url: '#contact'
+        },
+        secondaryButton: {
+          text: 'Другие проекты',
+          url: '/projects'
+        }
+      }
+    },
+
+    featured: true,
+    year: 2023
   }
 ];
 

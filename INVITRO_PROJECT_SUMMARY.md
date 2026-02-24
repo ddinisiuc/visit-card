@@ -83,6 +83,81 @@ Invitro Medical Services Platform
 
 ---
 
+## 🔥 Real Technical Challenges Solved (From Client Q&A)
+
+### 1. National ID Deduplication Strategy
+**Problem:** Legacy CRM allowed duplicate patients without national ID validation
+**Solution:**
+- Made national ID mandatory field with uniqueness validation
+- Built master-slave record architecture with scoring (recency, richness, matching)
+- Designed conflict resolution logic for thousands of existing duplicates
+
+**Impact:** Core challenge of the project - resolved thousands of patient duplicates
+
+### 2. No Webhooks from Legacy API
+**Constraint:** DocDream API didn't provide webhooks for data changes
+**Workaround:**
+- Built polling-based sync architecture
+- Added `AllowWebAccess` metadata flag to prevent accidental deletions across systems
+- Designed queue-based asynchronous processing to handle delays
+
+**Impact:** Architectural constraint that shaped entire synchronization strategy
+
+### 3. Family Account Privacy (18+ compliance)
+**Problem:** Parents shouldn't see medical results of adult children (18+ years)
+**Solution:** Privacy controls for family members with age-based access restrictions
+
+**Impact:** Medical data compliance and patient privacy
+
+### 4. Appointment → Service → Order Flow
+**Complexity:**
+- Service = routine converted to order detail when appointment created
+- Appointments can have both scheduled services (Type 1) and lab tests (Type 2)
+- Order splitting: scheduled services → Appointments, non-scheduled → Order
+
+**Impact:** Complex business logic requiring careful state management
+
+### 5. Data Moderation Layer
+**Requirement:** All family member data changes go through admin moderation
+**Reason:** Medical data integrity requires manual review of sensitive changes
+
+**Impact:** Compliance with healthcare data regulations
+
+---
+
+## 🏗️ Project Scale & Complexity (From Sprint Documentation)
+
+### API Integration at Scale
+Successfully integrated **10+ DocDream API resource types** forming a complex healthcare ecosystem:
+
+**Patient Management:**
+- Persons (patients) + PersonRelations (family accounts)
+- Practitioners (external doctors) + Employees (internal doctors)
+- Units (40+ clinic branches)
+
+**Service Delivery:**
+- Routines (2,000+ medical tests) + Specialities (medical specializations)
+- RoutineGroups (test categories with 4-5 hierarchy levels)
+- Appointments + Orders + Services (booking to fulfillment flow)
+- Planning (availability slots) + Documents (test results)
+
+**Challenge:** Each resource had dependencies, business rules, and data integrity requirements
+
+### Adapting to Evolving API
+
+**Sprint 1:** "Docdream API не закончен. Не описаны все ресурсы"
+**Sprint 3:** "API очень сырая, не указаны все статусы"
+
+**Architectural Response:**
+- Built abstraction layers isolating changes and incomplete endpoints
+- Designed flexible data models handling optional fields and missing statuses
+- Implemented graceful fallbacks for incomplete API responses
+- Maintained sprint velocity despite API instability
+
+**Marketing Value:** Demonstrates ability to deliver on complex projects with external dependencies and incomplete specifications - a common real-world scenario that requires technical maturity and adaptive planning.
+
+---
+
 ## 🎨 Диаграммы для создания:
 
 ### Диаграмма 1: System Architecture

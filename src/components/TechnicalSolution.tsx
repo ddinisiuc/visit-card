@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TechnicalDiagram } from '@/data/projects';
 import { ChevronRight, Layers, Network, Users } from 'lucide-react';
+import Image from 'next/image';
 import { DiagramCanvas } from './DiagramCanvas';
 
 interface TechnicalSolutionProps {
@@ -34,23 +35,23 @@ export function TechnicalSolution({ title, description, diagrams }: TechnicalSol
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-navy-600/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16 max-w-3xl"
+          className="mb-8 sm:mb-12 md:mb-16 max-w-3xl"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full glass border border-gold-400/20">
-            <Layers className="w-4 h-4 text-gold-400" />
-            <span className="text-sm text-foreground/80 uppercase tracking-wide">Technical Deep Dive</span>
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass border border-gold-400/20">
+            <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-400 flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-foreground/80 uppercase tracking-wide">Technical Deep Dive</span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl break-words hyphens-auto leading-tight">
             {title}
           </h2>
-          <p className="text-lg text-muted leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-muted leading-relaxed break-words hyphens-auto">
             {description}
           </p>
         </motion.div>
@@ -75,13 +76,14 @@ export function TechnicalSolution({ title, description, diagrams }: TechnicalSol
                   role="tab"
                   aria-selected={isActive}
                   aria-controls={`diagram-panel-${diagram.id}`}
+                  aria-label={diagram.title}
                   onClick={() => {
                     setActiveTab(index);
                     setImageLoaded(false);
                   }}
                   className={`
                     relative flex-1 px-4 sm:px-6 py-4 rounded-lg text-sm font-medium
-                    transition-all duration-300 group
+                    transition-all duration-300 group min-h-[44px]
                     ${isActive ? 'text-foreground' : 'text-muted hover:text-foreground/80'}
                   `}
                   whileHover={{ scale: 1.02 }}
@@ -98,11 +100,8 @@ export function TechnicalSolution({ title, description, diagrams }: TechnicalSol
 
                   {/* Content */}
                   <div className="relative flex items-center justify-center gap-2">
-                    <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-navy-950' : 'text-gold-400'}`} />
+                    <Icon className={`w-5 h-5 sm:w-4 sm:h-4 transition-colors ${isActive ? 'text-navy-950' : 'text-gold-400'}`} />
                     <span className={`hidden sm:inline ${isActive ? 'text-navy-950 font-semibold' : ''}`}>
-                      {diagram.title}
-                    </span>
-                    <span className={`sm:hidden ${isActive ? 'text-navy-950 font-semibold' : ''}`}>
                       {diagram.title}
                     </span>
                   </div>
@@ -129,22 +128,27 @@ export function TechnicalSolution({ title, description, diagrams }: TechnicalSol
             transition={{ duration: 0.5 }}
             className="rounded-2xl glass-strong p-4 md:p-8 glow-gold-sm"
           >
-            {/* Canvas Diagram */}
+            {/* Interactive Canvas Diagram */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-full"
             >
               {diagrams[activeTab].diagramData ? (
                 <DiagramCanvas
                   data={diagrams[activeTab].diagramData!}
                   alt={diagrams[activeTab].title}
                 />
-              ) : (
-                <div className="text-muted text-center py-20">
-                  Diagram data not available
-                </div>
-              )}
+              ) : diagrams[activeTab].image ? (
+                <Image
+                  src={diagrams[activeTab].image}
+                  alt={diagrams[activeTab].title}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto rounded-lg"
+                />
+              ) : null}
             </motion.div>
 
             {/* Caption with elegant styling */}
@@ -152,14 +156,11 @@ export function TechnicalSolution({ title, description, diagrams }: TechnicalSol
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative"
+              className="relative mt-6"
             >
-              <div className="flex items-start gap-3">
-                <div className="mt-1.5 w-1 h-1 rounded-full bg-gold-400 flex-shrink-0" />
-                <p className="text-sm md:text-base leading-relaxed text-foreground/80">
-                  {diagrams[activeTab].caption}
-                </p>
-              </div>
+              <p className="text-sm md:text-base leading-relaxed text-foreground/80 break-words hyphens-auto">
+                {diagrams[activeTab].caption}
+              </p>
 
               {/* Decorative gradient line */}
               <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-gold-400/20 to-transparent" />

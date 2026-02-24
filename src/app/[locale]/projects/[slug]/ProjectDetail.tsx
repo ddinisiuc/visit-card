@@ -11,6 +11,8 @@ import { BusinessMetrics } from '@/components/BusinessMetrics';
 import { TechnicalProcess } from '@/components/TechnicalProcess';
 import { TeamFeedback } from '@/components/TeamFeedback';
 import { ProjectCTA } from '@/components/ProjectCTA';
+import { TabsContainer } from '@/components/TabsContainer';
+import { AccordionSection } from '@/components/AccordionSection';
 
 interface ProjectDetailProps {
   project: Project;
@@ -104,11 +106,64 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
 
             {/* Client Context - compact */}
             {project.clientContext && (
-              <div className="glass rounded-2xl p-6 border border-gold-400/10">
-                <p className="text-sm text-foreground/70 leading-relaxed">
+              <div className="glass rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-gold-400/10">
+                <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed break-words hyphens-auto">
                   {project.clientContext[locale]}
                 </p>
               </div>
+            )}
+
+            {/* Leadership & Process Tabs - PRIORITY ZONE */}
+            {(project.leadershipApproach || project.technicalProcess || project.teamFeedback) && (
+              <TabsContainer
+                tabs={[
+                  ...(project.leadershipApproach ? [{
+                    id: 'leadership',
+                    label: project.leadershipApproach[locale].title,
+                    icon: 'Users',
+                    content: (
+                      <LeadershipApproach
+                        title={project.leadershipApproach[locale].title}
+                        description={project.leadershipApproach[locale].description}
+                        principles={project.leadershipApproach[locale].principles}
+                      />
+                    )
+                  }] : []),
+                  ...(project.technicalProcess ? [{
+                    id: 'process',
+                    label: project.technicalProcess[locale].title,
+                    icon: 'GitBranch',
+                    content: (
+                      <TechnicalProcess
+                        title={project.technicalProcess[locale].title}
+                        description={project.technicalProcess[locale].description}
+                        phases={project.technicalProcess[locale].phases}
+                      />
+                    )
+                  }] : []),
+                  ...(project.teamFeedback ? [{
+                    id: 'feedback',
+                    label: project.teamFeedback[locale].title,
+                    icon: 'MessageSquare',
+                    content: (
+                      <TeamFeedback
+                        title={project.teamFeedback[locale].title}
+                        feedback={project.teamFeedback[locale].feedback}
+                      />
+                    )
+                  }] : [])
+                ]}
+                defaultTab="leadership"
+              />
+            )}
+
+            {/* Business Metrics */}
+            {project.businessMetrics && (
+              <BusinessMetrics
+                title={project.businessMetrics[locale].title}
+                metrics={project.businessMetrics[locale].metrics}
+                context={project.businessMetrics[locale].context}
+              />
             )}
 
             {/* Technical Solution - diagrams with tabs */}
@@ -122,109 +177,75 @@ export default function ProjectDetail({ project, locale }: ProjectDetailProps) {
               </div>
             )}
 
-            {/* Technical Process */}
-            {project.technicalProcess && (
-              <TechnicalProcess
-                title={project.technicalProcess[locale].title}
-                description={project.technicalProcess[locale].description}
-                phases={project.technicalProcess[locale].phases}
-              />
-            )}
-
-            {/* Business Metrics */}
-            {project.businessMetrics && (
-              <BusinessMetrics
-                title={project.businessMetrics[locale].title}
-                metrics={project.businessMetrics[locale].metrics}
-              />
-            )}
-
             {/* Challenges & Decisions - mini block */}
-            <div className="glass rounded-2xl p-6 border border-gold-400/10">
-              <h2 className="text-lg font-semibold mb-4 flex items-center gap-3 text-gold-400">
-                <AlertTriangle className="w-5 h-5" />
-                {t('challenges')}
+            <div className="glass rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-gold-400/10">
+              <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3 text-gold-400">
+                <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span className="break-words">{t('challenges')}</span>
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5 sm:space-y-3">
                 {project.challenges[locale].map((challenge, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                    className="flex items-start gap-3 text-foreground/80"
+                    className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-foreground/80"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-400/60 mt-2 flex-shrink-0" />
-                    {challenge}
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-400/60 mt-1.5 sm:mt-2 flex-shrink-0" />
+                    <span className="break-words hyphens-auto leading-relaxed">{challenge}</span>
                   </motion.li>
                 ))}
               </ul>
             </div>
 
-            {/* My Role / Scope */}
-            <div>
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span className="w-8 h-1 bg-gradient-to-r from-gold-400 to-gold-500 rounded-full" />
-                {t('scope')}
-              </h2>
-              <ul className="space-y-4">
+            {/* My Role / Scope - Collapsible */}
+            <AccordionSection
+              title={t('scope')}
+              icon={<Briefcase className="w-4 h-4 text-gold-400" />}
+              defaultOpen={false}
+            >
+              <ul className="space-y-3 sm:space-y-4 mt-3 sm:mt-4">
                 {project.scope[locale].map((item, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.25 + index * 0.1 }}
-                    className="flex items-start gap-4"
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex items-start gap-2.5 sm:gap-4"
                   >
-                    <div className="w-6 h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Briefcase className="w-3 h-3 text-gold-400" />
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Briefcase className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gold-400" />
                     </div>
-                    <span className="text-foreground/80">{item}</span>
+                    <span className="text-sm sm:text-base text-foreground/80 break-words hyphens-auto leading-relaxed">{item}</span>
                   </motion.li>
                 ))}
               </ul>
-            </div>
+            </AccordionSection>
 
-            {/* Features */}
-            <div>
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <span className="w-8 h-1 bg-gradient-to-r from-gold-400 to-gold-500 rounded-full" />
-                {t('features')}
-              </h2>
-              <ul className="space-y-4">
+            {/* Features - Collapsible */}
+            <AccordionSection
+              title={t('features')}
+              icon={<Check className="w-4 h-4 text-gold-400" />}
+              defaultOpen={false}
+            >
+              <ul className="space-y-3 sm:space-y-4 mt-3 sm:mt-4">
                 {project.features[locale].map((feature, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-4"
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex items-start gap-2.5 sm:gap-4"
                   >
-                    <div className="w-6 h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-gold-400" />
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gold-400" />
                     </div>
-                    <span className="text-foreground/80">{feature}</span>
+                    <span className="text-sm sm:text-base text-foreground/80 break-words hyphens-auto leading-relaxed">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
-            </div>
-
-            {/* Leadership Approach */}
-            {project.leadershipApproach && (
-              <LeadershipApproach
-                title={project.leadershipApproach[locale].title}
-                description={project.leadershipApproach[locale].description}
-                principles={project.leadershipApproach[locale].principles}
-              />
-            )}
-
-            {/* Team Feedback */}
-            {project.teamFeedback && (
-              <TeamFeedback
-                title={project.teamFeedback[locale].title}
-                feedback={project.teamFeedback[locale].feedback}
-              />
-            )}
+            </AccordionSection>
           </motion.div>
 
           {/* Sidebar */}

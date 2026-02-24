@@ -42,9 +42,14 @@ export default function About() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
             {t('subtitle')}
           </h2>
-          <p className="text-muted max-w-2xl mx-auto text-base sm:text-lg">
-            {t('description')}
-          </p>
+          <div className="max-w-2xl mx-auto space-y-4">
+            <p className="text-muted text-base sm:text-lg">
+              {t('description')}
+            </p>
+            <p className="text-muted/80 text-base sm:text-lg italic">
+              {t('creative')}
+            </p>
+          </div>
         </motion.div>
 
         {/* Beliefs / POV */}

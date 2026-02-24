@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Send } from 'lucide-react';
 
 export interface Social {
   name: string;
@@ -9,29 +9,24 @@ export interface Social {
 export const socials: Social[] = [
   {
     name: 'GitHub',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/flaming-flow',
     icon: Github
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://www.linkedin.com/in/dinisiuc-daniil',
     icon: Linkedin
   },
   {
-    name: 'Twitter',
-    url: 'https://twitter.com/yourusername',
-    icon: Twitter
-  },
-  {
     name: 'Telegram',
-    url: 'https://t.me/yourusername',
+    url: 'https://t.me/flaming_flow',
     icon: Send
   },
   {
     name: 'Email',
-    url: 'mailto:your@email.com',
+    url: 'mailto:ddinisiuc.web@gmail.com',
     icon: Mail
   }
 ];
 
-export const email = 'your@email.com';
+export const email = 'ddinisiuc.web@gmail.com';

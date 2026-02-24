@@ -38,12 +38,14 @@
     "title": "About Me",
     "subtitle": "Building Products, Not Just Code",
     "description": "I own the path from unclear requirements to shipped product. That means discovery, architecture decisions, coordinating developers, and communicating progress. I work well with incomplete information, tight timelines, and the realities of early-stage constraints.",
+    "creative": "Beyond building systems, I explore pattern and movement through creative disciplines — dance and visual arts. The same thinking that helps me navigate legacy chaos or design elegant architectures comes from learning to find solutions where there's no obvious path.",
     "beliefs": {
       "title": "What I believe",
       "items": [
         "Most MVP failures aren't technical — they're communication failures",
         "The best architecture is the one your team can actually maintain",
-        "Clarity costs less than rework"
+        "Clarity costs less than rework",
+        "Creativity emerges from constraints — true in code and in dance"
       ]
     },
     "skills": "How I Work",

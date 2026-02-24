@@ -250,7 +250,7 @@ export const projects: Project[] = [
     },
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/example',
-    featured: true,
+    featured: false,
     year: 2024
   },
   {
@@ -318,7 +318,7 @@ export const projects: Project[] = [
     },
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/example',
-    featured: true,
+    featured: false,
     year: 2024
   },
   {
@@ -384,7 +384,7 @@ export const projects: Project[] = [
         'Стратегия принятия пользователями и совместное проектирование визуализаций'
       ]
     },
-    featured: true,
+    featured: false,
     year: 2023
   },
   {

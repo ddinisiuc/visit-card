@@ -1,0 +1,233 @@
+{
+  "navigation": {
+    "home": "Acasă",
+    "about": "Despre mine",
+    "projects": "Proiecte",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "",
+    "name": "Daniil",
+    "badge": "Partener tehnic pentru fondatori",
+    "role": "Pentru fondatori în fază inițială: de la idee la produs lansat fără haos",
+    "description": "Preiau întreaga cale — descoperire, arhitectură, coordonare dezvoltare și lansare. Primești claritate și un produs funcțional, nu doar cod.",
+    "cta": "Vezi proiectele",
+    "contact": "Rezervă un apel de 15 min",
+    "stats": {
+      "experience": "Ani în producție",
+      "projects": "Produse lansate",
+      "clients": "Fondatori ajutați"
+    }
+  },
+  "fit": {
+    "title": "Este pentru tine?",
+    "forYou": "Este pentru tine dacă",
+    "notForYou": "Nu este pentru tine dacă",
+    "forYouItems": [
+      "Ești în pre-seed sau Series A cu o idee de produs, dar fără co-fondator tehnic",
+      "Ai fost dezamăgit de agenții care au livrat cod imposibil de întreținut",
+      "Ai nevoie de cineva care răspunde pentru rezultat, nu doar închide tickete"
+    ],
+    "notForYouItems": [
+      "Ai nevoie de un dezvoltator junior pentru sarcini orare",
+      "Ai o echipă tehnică completă și ai nevoie doar de mâini extra",
+      "Cauți cea mai ieftină opțiune"
+    ]
+  },
+  "about": {
+    "title": "Despre mine",
+    "subtitle": "Construiesc produse, nu doar cod",
+    "description": "Răspund pentru calea de la cerințe neclare până la lansarea produsului. Asta înseamnă descoperire, decizii de arhitectură, coordonare dezvoltatori și comunicare regulată. Lucrez eficient cu informații incomplete, termene strânse și realitățile fazei inițiale.",
+    "creative": "Dincolo de construirea sistemelor, explorez pattern-uri și mișcare prin discipline creative — dans și arte vizuale. Aceeași gândire care mă ajută să navighez haosul legacy sau să proiectez arhitecturi elegante vine din capacitatea de a găsi soluții unde nu există o cale evidentă.",
+    "beliefs": {
+      "title": "În ce cred",
+      "items": [
+        "Majoritatea eșecurilor MVP nu sunt tehnice — sunt eșecuri de comunicare",
+        "Cea mai bună arhitectură este cea pe care echipa ta o poate întreține efectiv",
+        "Claritatea costă mai puțin decât refacerea",
+        "Creativitatea apare din constrângeri — adevărat în cod și în dans"
+      ]
+    },
+    "skills": "Cum lucrez",
+    "whatILead": "Ce conduc",
+    "whatWeUse": "Ce folosim"
+  },
+  "projects": {
+    "title": "Proiecte selectate",
+    "subtitle": "Lucrări selectate",
+    "viewProject": "Vezi proiectul",
+    "viewAll": "Toate proiectele",
+    "details": {
+      "overview": "Prezentare generală",
+      "technologies": "Tehnologii",
+      "features": "Caracteristici cheie",
+      "challenges": "Provocări și soluții",
+      "scope": "Rolul meu",
+      "liveDemo": "Demo live",
+      "sourceCode": "Cod sursă",
+      "backToProjects": "Înapoi la proiecte"
+    }
+  },
+  "contact": {
+    "title": "Hai să vorbim",
+    "subtitle": "Începe o conversație",
+    "description": "Rezervă un apel scurt. Îți voi spune dacă pot ajuta — fără pitch, doar claritate.",
+    "cta": "Rezervă un apel de 15 min",
+    "email": "Sau scrie-mi direct",
+    "socials": "Găsește-mă aici"
+  },
+  "footer": {
+    "description": "Partener tehnic care ajută fondatorii să transforme ideile în produse lansate.",
+    "quickLinks": "Linkuri rapide",
+    "connect": "Conectează-te",
+    "links": {
+      "home": "Acasă",
+      "about": "Despre mine",
+      "projects": "Proiecte",
+      "contact": "Contact"
+    },
+    "rights": "Toate drepturile rezervate.",
+    "madeWith": "Făcut cu pasiune"
+  },
+  "seo": {
+    "home": {
+      "title": "Daniil | Partener tehnic și constructor de produse",
+      "description": "Partener tehnic pentru fondatori în fază inițială. Preiau întreaga cale de la descoperire la produs lansat — arhitectură, coordonare dezvoltare și livrare. 5+ ani în producție, 50+ produse lansate.",
+      "keywords": "partener tehnic, constructor produse, laravel, vue.js, technical lead, dezvoltare MVP, arhitectură software, integrare sisteme legacy, CTO pentru startup-uri"
+    },
+    "person": {
+      "name": "Daniil Dinisiuc",
+      "alternateName": "Daniil",
+      "jobTitle": "Partener tehnic și constructor de produse",
+      "description": "Partener tehnic pentru fondatori în fază inițială. Preiau întreaga cale de la descoperire la produs lansat — arhitectură, coordonare dezvoltare și livrare. 5+ ani în producție, 50+ produse lansate, 30+ fondatori ajutați.",
+      "occupation": "Lider tehnic și arhitect software",
+      "occupationLocation": "Remote / Global",
+      "skills": "Leadership tehnic, Arhitectură software, Dezvoltare Full-Stack, Integrare sisteme legacy, Coordonare echipă, Dezvoltare MVP"
+    }
+  },
+  "testimonials": {
+    "title": "Ce spun fondatorii",
+    "subtitle": "Testimoniale"
+  },
+  "leadMagnet": {
+    "title": "Checklist tehnic de descoperire pentru fondatori în fază inițială",
+    "subtitle": "Resursă gratuită",
+    "description": "Un checklist cuprinzător pentru validarea ideii de produs, definirea MVP și luarea deciziilor tehnice critice înainte de a începe dezvoltarea.",
+    "emailForm": {
+      "title": "Primește checklist-ul gratuit",
+      "subtitle": "Introdu email-ul pentru acces la checklist-ul interactiv",
+      "emailPlaceholder": "email@tau.com",
+      "submitButton": "Primește acces",
+      "submitting": "Se obține acces...",
+      "privacy": "Respect confidențialitatea ta. Fără spam.",
+      "benefits": {
+        "title": "Ce vei primi:",
+        "items": [
+          "40+ puncte acționabile în 5 domenii critice",
+          "Urmărire interactivă a progresului",
+          "PDF pentru descărcare și lucru cu echipa"
+        ]
+      }
+    },
+    "checklist": {
+      "title": "Checklist-ul tău tehnic",
+      "progressLabel": "Progres",
+      "downloadButton": "Descarcă PDF",
+      "shareButton": "Distribuie",
+      "sections": {
+        "problemDefinition": {
+          "title": "Definirea problemei",
+          "description": "Validează problema înainte de dezvoltare",
+          "items": [
+            "Am documentat 10+ conversații cu utilizatori țintă despre problemele lor",
+            "Am identificat problema #1 care merită rezolvată (nu nice-to-have)",
+            "Am validat că utilizatorii sunt dispuși să plătească pentru o soluție",
+            "Am confirmat că workaround-urile existente sunt suficient de dureroase pentru schimbare",
+            "Am definit metrici de succes (venituri, retenție, engagement)",
+            "Am identificat soluții concurente și de ce eșuează",
+            "Am stabilit un timeline clar pentru validare (3-6 luni max)"
+          ]
+        },
+        "mvpScope": {
+          "title": "Scop MVP",
+          "description": "Definește ce construiești mai întâi (și ce sari)",
+          "items": [
+            "Am listat toate feature-urile posibile, apoi am tăiat 80%",
+            "Am definit singurul workflow de bază care oferă valoare",
+            "Am identificat ce feature-uri sunt must-have vs nice-to-have",
+            "Am stabilit un timeline realist (6-12 săptămâni pentru prima versiune)",
+            "Am determinat criterii de succes pentru MVP",
+            "Am planificat fluxul de onboarding utilizator",
+            "Am definit ce înseamnă 'gata'",
+            "Am prioritizat datoria tehnică vs viteză"
+          ]
+        },
+        "techStack": {
+          "title": "Decizii tech stack",
+          "description": "Alege instrumente care permit viteză fără haos",
+          "items": [
+            "Am selectat tehnologii dovedite (nu bleeding edge)",
+            "M-am asigurat că stack-ul corespunde expertizei echipei",
+            "Am evaluat costurile de hosting la scară",
+            "Am planificat pentru necesități viitoare de scalare (dar fără over-engineering)",
+            "Am decis abordarea monolith vs microservices",
+            "Am ales baza de date potrivită modelului de date",
+            "Am selectat procesorul de plăți și complexitatea integrării",
+            "Am evaluat servicii terțe vs dezvoltare in-house"
+          ]
+        },
+        "teamNeeds": {
+          "title": "Echipă și resurse",
+          "description": "Determină cine ai nevoie și când",
+          "items": [
+            "Am identificat lacunele de competențe în echipa actuală",
+            "Am decis între angajare, outsourcing sau partener tehnic",
+            "Am stabilit un buget realist pentru dezvoltare",
+            "Am planificat întreținerea continuă după lansare",
+            "Am determinat proprietatea codului și nevoile de transfer de cunoștințe",
+            "Am evaluat opțiuni agenție vs freelancer vs full-time",
+            "Am stabilit așteptări de comunicare și frecvență"
+          ]
+        },
+        "timeline": {
+          "title": "Timeline și milestone-uri",
+          "description": "Stabilește milestone-uri și checkpoints realiste",
+          "items": [
+            "Am împărțit proiectul în sprint-uri de 2 săptămâni",
+            "Am definit livrabile pentru fiecare milestone",
+            "Am stabilit date demo pentru a arăta progresul stakeholderilor",
+            "Am planificat buffer time pentru probleme neașteptate (25%+)",
+            "Am programat sesiuni de testare utilizatori",
+            "Am determinat data go-live și strategia de lansare",
+            "Am planificat suport post-lansare și cicluri de iterație",
+            "Am stabilit puncte de revizuire pentru evaluarea progresului vs obiective"
+          ]
+        }
+      },
+      "successMessage": {
+        "title": "Progres excelent!",
+        "description": "Checklist-ul tău a fost salvat. Am trimis o copie PDF la:",
+        "nextSteps": {
+          "title": "Pașii următori:",
+          "items": [
+            "Revizuiește checklist-ul cu echipa ta",
+            "Identifică lacunele și acțiunile necesare",
+            "Rezervă un apel de 15 min pentru discuții"
+          ],
+          "cta": "Rezervă un apel"
+        }
+      }
+    }
+  },
+  "leadMagnetCTA": {
+    "title": "Resursă gratuită",
+    "heading": "Checklist tehnic de descoperire",
+    "description": "Validează ideea de produs și ia decizii tehnice critice înainte de a începe dezvoltarea.",
+    "benefits": [
+      "40+ puncte acționabile",
+      "5 domenii critice de decizie",
+      "Urmărire interactivă a progresului"
+    ],
+    "cta": "Primește checklist-ul"
+  }
+}

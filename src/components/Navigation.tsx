@@ -108,6 +108,14 @@ export default function Navigation() {
                   >
                     Русский
                   </button>
+                  <button
+                    onClick={() => switchLocale('md')}
+                    className={`w-full px-4 py-3 text-left text-sm hover:bg-gold-400/10 transition-colors ${
+                      currentLocale === 'md' ? 'text-gold-400' : 'text-foreground/80'
+                    }`}
+                  >
+                    Română
+                  </button>
                 </motion.div>
               )}
             </AnimatePresence>

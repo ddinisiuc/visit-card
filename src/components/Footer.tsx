@@ -28,27 +28,27 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-muted text-sm max-w-xs">
-              Tech partner helping founders turn ideas into shipped products.
+              {t('description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="text-gold-400 font-semibold mb-4 uppercase tracking-wider text-sm">
-              Quick Links
+              {t('quickLinks')}
             </h4>
             <nav className="flex flex-col gap-3">
               <Link href="/" className="text-foreground/70 hover:text-gold-400 transition-colors text-sm">
-                Home
+                {t('links.home')}
               </Link>
               <Link href="/#about" className="text-foreground/70 hover:text-gold-400 transition-colors text-sm">
-                About
+                {t('links.about')}
               </Link>
               <Link href="/projects" className="text-foreground/70 hover:text-gold-400 transition-colors text-sm">
-                Projects
+                {t('links.projects')}
               </Link>
               <Link href="/#contact" className="text-foreground/70 hover:text-gold-400 transition-colors text-sm">
-                Contact
+                {t('links.contact')}
               </Link>
             </nav>
           </div>
@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Social Links */}
           <div>
             <h4 className="text-gold-400 font-semibold mb-4 uppercase tracking-wider text-sm">
-              Connect
+              {t('connect')}
             </h4>
             <div className="flex flex-wrap gap-3">
               {socials.map((social) => (

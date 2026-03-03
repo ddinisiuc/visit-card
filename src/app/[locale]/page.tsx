@@ -3,7 +3,9 @@ import Hero from '@/components/Hero';
 import Fit from '@/components/Fit';
 import About from '@/components/About';
 import ProjectsGrid from '@/components/ProjectsGrid';
+import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
+import PersonSchema from '@/components/PersonSchema';
 
 export default async function HomePage({
   params,
@@ -15,10 +17,12 @@ export default async function HomePage({
 
   return (
     <>
+      <PersonSchema locale={locale as 'en' | 'ru'} />
       <Hero />
       <Fit />
       <About />
       <ProjectsGrid />
+      <Testimonials />
       <Contact />
     </>
   );

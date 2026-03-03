@@ -17,17 +17,63 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Daniil | Tech Partner & Product Builder",
-  description: "I take ownership of the tech side, lead small teams, and help turn ideas into working products. Architecture, delivery, and execution.",
-  keywords: ["tech partner", "product builder", "laravel", "vue.js", "team lead", "startup CTO"],
-  authors: [{ name: "Daniil" }],
-  openGraph: {
-    title: "Daniil | Tech Partner & Product Builder",
-    description: "I take ownership of the tech side, lead small teams, and help turn ideas into working products.",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const messages = await getMessages() as any;
+  const seo = messages.seo?.home || {};
+
+  const title = seo.title || "Daniil | Technical Partner & Product Builder";
+  const description = seo.description || "Technical partner for early-stage founders";
+  const keywords = seo.keywords ? seo.keywords.split(', ') : [];
+
+  return {
+    metadataBase: new URL('https://ddinisiuc.com'),
+    title,
+    description,
+    keywords,
+    authors: [{ name: "Daniil Dinisiuc" }],
+
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: `https://ddinisiuc.com/${locale}`,
+      siteName: title,
+      locale: locale,
+      images: [{
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: title,
+      }],
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.jpg'],
+    },
+
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        'en': '/en',
+        'ru': '/ru',
+      },
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

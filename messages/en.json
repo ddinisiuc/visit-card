@@ -77,7 +77,157 @@
     "socials": "Find me here"
   },
   "footer": {
+    "description": "Tech partner helping founders turn ideas into shipped products.",
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
     "rights": "All rights reserved.",
     "madeWith": "Made with passion"
+  },
+  "seo": {
+    "home": {
+      "title": "Daniil | Technical Partner & Product Builder",
+      "description": "Technical partner for early-stage founders. I own the full path from discovery to shipped product — architecture, dev coordination, and delivery. 5+ years in production, 50+ products shipped.",
+      "keywords": "technical partner, product builder, laravel, vue.js, technical lead, MVP development, software architecture, legacy system integration, early-stage startup CTO"
+    },
+    "person": {
+      "name": "Daniil Dinisiuc",
+      "alternateName": "Daniil",
+      "jobTitle": "Technical Partner & Product Builder",
+      "description": "Technical partner for early-stage founders. I own the full path from discovery to shipped product — architecture, dev coordination, and delivery. 5+ years in production, 50+ products shipped, 30+ founders helped.",
+      "occupation": "Technical Lead & Software Architect",
+      "occupationLocation": "Remote / Global",
+      "skills": "Technical Leadership, Software Architecture, Full-Stack Development, Legacy System Integration, Team Coordination, MVP Development"
+    }
+  },
+  "testimonials": {
+    "title": "What Founders Say",
+    "subtitle": "Testimonials"
+  },
+  "leadMagnet": {
+    "title": "Technical Discovery Checklist for Early-Stage Founders",
+    "subtitle": "Free Resource",
+    "description": "A comprehensive checklist to validate your product idea, define MVP scope, and make critical technical decisions before you start building.",
+    "emailForm": {
+      "title": "Get Your Free Checklist",
+      "subtitle": "Enter your email to access the interactive checklist",
+      "emailPlaceholder": "your@email.com",
+      "submitButton": "Get Free Access",
+      "submitting": "Getting access...",
+      "privacy": "I respect your privacy. No spam, ever.",
+      "benefits": {
+        "title": "What you'll get:",
+        "items": [
+          "40+ actionable checklist items across 5 critical areas",
+          "Interactive progress tracking",
+          "Downloadable PDF for your team"
+        ]
+      }
+    },
+    "checklist": {
+      "title": "Your Technical Discovery Checklist",
+      "progressLabel": "Progress",
+      "downloadButton": "Download PDF",
+      "shareButton": "Share",
+      "sections": {
+        "problemDefinition": {
+          "title": "Problem Definition",
+          "description": "Validate the core problem before building anything",
+          "items": [
+            "Documented 10+ conversations with target users about their pain points",
+            "Identified the #1 problem worth solving (not a nice-to-have)",
+            "Validated that users are willing to pay for a solution",
+            "Confirmed existing workarounds are painful enough to switch",
+            "Defined success metrics (revenue, retention, engagement)",
+            "Identified competing solutions and why they fail",
+            "Set a clear timeline for validation (3-6 months max)"
+          ]
+        },
+        "mvpScope": {
+          "title": "MVP Scope",
+          "description": "Define what to build first (and what to skip)",
+          "items": [
+            "Listed all possible features, then cut 80% of them",
+            "Defined the single core workflow that delivers value",
+            "Identified which features are must-have vs nice-to-have",
+            "Set a realistic timeline (6-12 weeks for first version)",
+            "Determined success criteria for the MVP",
+            "Planned user onboarding flow",
+            "Defined what 'done' looks like",
+            "Prioritized technical debt vs speed tradeoffs"
+          ]
+        },
+        "techStack": {
+          "title": "Tech Stack Decisions",
+          "description": "Choose tools that enable speed without creating chaos",
+          "items": [
+            "Selected proven technologies (not bleeding edge)",
+            "Ensured the stack matches team expertise",
+            "Evaluated hosting costs at scale",
+            "Planned for future scaling needs (but not over-engineering)",
+            "Decided on monolith vs microservices approach",
+            "Chose database that fits data model",
+            "Selected payment processor and integration complexity",
+            "Evaluated third-party services vs building in-house"
+          ]
+        },
+        "teamNeeds": {
+          "title": "Team & Resources",
+          "description": "Determine who you need and when",
+          "items": [
+            "Identified skills gap in current team",
+            "Decided between hiring, outsourcing, or technical partner",
+            "Set realistic budget for development",
+            "Planned for ongoing maintenance after launch",
+            "Determined code ownership and knowledge transfer needs",
+            "Evaluated agency vs freelancer vs full-time options",
+            "Set communication expectations and cadence"
+          ]
+        },
+        "timeline": {
+          "title": "Timeline & Milestones",
+          "description": "Set realistic milestones and checkpoints",
+          "items": [
+            "Broke down project into 2-week sprints",
+            "Defined deliverables for each milestone",
+            "Set demo dates to show progress to stakeholders",
+            "Planned buffer time for unexpected issues (25%+)",
+            "Scheduled user testing sessions",
+            "Determined go-live date and launch strategy",
+            "Planned post-launch support and iteration cycles",
+            "Set review points to assess progress vs goals"
+          ]
+        }
+      },
+      "successMessage": {
+        "title": "Great progress!",
+        "description": "Your checklist has been saved. We've sent a PDF copy to:",
+        "nextSteps": {
+          "title": "Next steps:",
+          "items": [
+            "Review your checklist with your team",
+            "Identify gaps and action items",
+            "Book a 15-min call to discuss your specific needs"
+          ],
+          "cta": "Book a Discovery Call"
+        }
+      }
+    }
+  },
+  "leadMagnetCTA": {
+    "title": "Free Resource",
+    "heading": "Technical Discovery Checklist",
+    "description": "Validate your product idea and make critical tech decisions before you start building.",
+    "benefits": [
+      "40+ actionable checklist items",
+      "5 critical decision areas",
+      "Interactive progress tracking"
+    ],
+    "cta": "Get Free Checklist"
   }
 }

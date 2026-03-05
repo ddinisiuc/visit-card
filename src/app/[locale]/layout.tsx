@@ -45,7 +45,7 @@ export async function generateMetadata({
       siteName: title,
       locale: locale,
       images: [{
-        url: '/og-image.jpg',
+        url: `/og?locale=${locale}&type=default`,
         width: 1200,
         height: 630,
         alt: title,
@@ -56,7 +56,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: ['/og-image.jpg'],
+      images: [`/og?locale=${locale}&type=default`],
     },
 
     alternates: {
@@ -64,6 +64,7 @@ export async function generateMetadata({
       languages: {
         'en': '/en',
         'ru': '/ru',
+        'ro': '/md', // Moldovan uses Romanian locale code
       },
     },
 

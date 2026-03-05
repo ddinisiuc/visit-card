@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 interface PersonSchemaProps {
-  locale: 'en' | 'ru';
+  locale: 'en' | 'ru' | 'md';
 }
 
 export default function PersonSchema({ locale }: PersonSchemaProps) {

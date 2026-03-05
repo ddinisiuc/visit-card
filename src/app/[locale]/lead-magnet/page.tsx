@@ -31,7 +31,7 @@ export async function generateMetadata({
       siteName: "Daniil | Technical Partner",
       locale: locale,
       images: [{
-        url: '/og-image-lead-magnet.jpg',
+        url: `/og?locale=${locale}&type=lead-magnet`,
         width: 1200,
         height: 630,
         alt: title,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: ['/og-image-lead-magnet.jpg'],
+      images: [`/og?locale=${locale}&type=lead-magnet`],
     },
 
     alternates: {
@@ -50,6 +50,7 @@ export async function generateMetadata({
       languages: {
         'en': '/en/lead-magnet',
         'ru': '/ru/lead-magnet',
+        'ro': '/md/lead-magnet', // Moldovan uses Romanian locale code
       },
     },
 

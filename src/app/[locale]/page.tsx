@@ -17,7 +17,7 @@ export default async function HomePage({
 
   return (
     <>
-      <PersonSchema locale={locale as 'en' | 'ru'} />
+      <PersonSchema locale={locale as 'en' | 'ru' | 'md'} />
       <Hero />
       <Fit />
       <About />

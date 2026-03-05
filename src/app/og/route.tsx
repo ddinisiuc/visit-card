@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
+// Removed edge runtime for Docker standalone compatibility
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   try {

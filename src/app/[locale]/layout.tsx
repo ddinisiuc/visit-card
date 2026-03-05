@@ -45,7 +45,7 @@ export async function generateMetadata({
       siteName: title,
       locale: locale,
       images: [{
-        url: `/og/og-${locale}-default.svg`,
+        url: `/og/og-${locale}-default.png`,
         width: 1200,
         height: 630,
         alt: title,
@@ -56,7 +56,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [`/og/og-${locale}-default.svg`],
+      images: [`/og/og-${locale}-default.png`],
     },
 
     alternates: {

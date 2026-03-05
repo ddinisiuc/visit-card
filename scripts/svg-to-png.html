@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG to PNG Converter</title>
+    <style>
+        body { font-family: system-ui; padding: 20px; background: #1a1a1a; color: white; }
+        button { padding: 10px 20px; margin: 10px 0; background: #f59e0b; border: none;
+                 border-radius: 8px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #fcd34d; }
+        #status { margin-top: 20px; padding: 10px; background: #333; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>OG Images SVG to PNG Converter</h1>
+    <p>Click the button to convert all SVG files to PNG (1200x630)</p>
+    <button onclick="convertAll()">Convert All SVG to PNG</button>
+    <div id="status"></div>
+
+    <script>
+        const svgFiles = [
+            'og-en-default.svg',
+            'og-ru-default.svg',
+            'og-md-default.svg',
+            'og-en-lead-magnet.svg',
+            'og-ru-lead-magnet.svg',
+            'og-md-lead-magnet.svg'
+        ];
+
+        async function convertSvgToPng(svgPath, pngName) {
+            const response = await fetch(`../public/og/${svgPath}`);
+            const svgText = await response.text();
+
+            const img = new Image();
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+
+            return new Promise((resolve) => {
+                img.onload = () => {
+                    ctx.drawImage(img, 0, 0);
+                    canvas.toBlob((blob) => {
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = pngName;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                        resolve();
+                    }, 'image/png');
+                };
+
+                const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+                const url = URL.createObjectURL(svgBlob);
+                img.src = url;
+            });
+        }
+
+        async function convertAll() {
+            const status = document.getElementById('status');
+            status.innerHTML = '<p>Converting...</p>';
+
+            for (const svgFile of svgFiles) {
+                const pngFile = svgFile.replace('.svg', '.png');
+                try {
+                    await convertSvgToPng(svgFile, pngFile);
+                    status.innerHTML += `<p>✓ Converted ${svgFile} → ${pngFile}</p>`;
+                    await new Promise(r => setTimeout(r, 500)); // Delay for download
+                } catch (e) {
+                    status.innerHTML += `<p>✗ Failed ${svgFile}: ${e.message}</p>`;
+                }
+            }
+
+            status.innerHTML += '<p><strong>Done! Save all PNG files to public/og/</strong></p>';
+        }
+    </script>
+</body>
+</html>

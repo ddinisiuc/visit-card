@@ -45,7 +45,7 @@ export async function generateMetadata({
       siteName: title,
       locale: locale,
       images: [{
-        url: `/og/og-${locale}-default.png`,
+        url: `https://ddinisiuc.com/og/og-${locale}-default.jpg`,
         width: 1200,
         height: 630,
         alt: title,
@@ -56,7 +56,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [`/og/og-${locale}-default.png`],
+      images: [`https://ddinisiuc.com/og/og-${locale}-default.jpg`],
     },
 
     alternates: {

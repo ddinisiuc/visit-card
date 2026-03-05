@@ -31,7 +31,7 @@ export async function generateMetadata({
       siteName: "Daniil | Technical Partner",
       locale: locale,
       images: [{
-        url: `/og?locale=${locale}&type=lead-magnet`,
+        url: `/og/og-${locale}-lead-magnet.svg`,
         width: 1200,
         height: 630,
         alt: title,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [`/og?locale=${locale}&type=lead-magnet`],
+      images: [`/og/og-${locale}-lead-magnet.svg`],
     },
 
     alternates: {
